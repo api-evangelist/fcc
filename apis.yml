@@ -50,6 +50,8 @@ apis:
     properties:
       - type: Documentation
         url: https://www.fcc.gov/census-block-conversions-api
+      - type: OpenAPI
+        url: openapi/fcc-area-census-block-api.yaml
   - aid: fcc:contours
     name: FCC Contours API
     description: Returns broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation and Height Above Average Terrain (HAAT) data.
@@ -63,6 +65,8 @@ apis:
     properties:
       - type: Documentation
         url: https://geo.fcc.gov/api/contours/
+      - type: OpenAPI
+        url: openapi/fcc-contours-api.yaml
   - aid: fcc:ecfs
     name: FCC Electronic Comment Filing System (ECFS) API
     description: Enables external users and organizations to search the FCC Electronic Comment Filing System (ECFS) for regulatory filings and public comments without using the web interface. Free API key registration available.

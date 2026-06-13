@@ -1,0 +1,793 @@
+openapi: 3.0.3
+info:
+  title: FCC Contours API
+  description: >
+    The FCC Enterprise Contours API provides broadcast radio and television service
+    area data. Includes coverage contours for FM and TV stations by call sign, Facility
+    ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna
+    patterns, coordinate conversion, and distance-curve calculations. All endpoints are
+    free with no authentication required.
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+  - url: https://geo.fcc.gov/api/contours
+    description: FCC Contours API
+tags:
+  - name: coverage
+    description: Get service contour for TV and FM stations
+  - name: entity
+    description: Get coverage contour by entity (call sign, facility ID, or application ID)
+  - name: antenna
+    description: Get antenna pattern data for TV and FM stations
+  - name: elevation
+    description: Get terrain elevation data at a given location
+  - name: haat
+    description: Get Height Above Average Terrain (HAAT) data
+  - name: profile
+    description: Get terrain elevation profile between two points
+  - name: distance
+    description: Calculate distance using F-curve propagation curves
+  - name: am-pattern
+    description: Get AM antenna pattern data
+  - name: projection
+    description: Project coordinates between coordinate reference systems
+  - name: coordinate-conversion
+    description: Convert between decimal degrees and degrees-minutes-seconds
+paths:
+  /coverage.json:
+    get:
+      tags:
+        - coverage
+      operationId: getCoverage
+      summary: Get Contour by Service Type
+      description: >
+        Get contour based on serviceType (FM, TV). Response returned in GeoJSON,
+        JSONP, Shapefile, KML, GML, CSV.
+      parameters:
+        - name: serviceType
+          in: query
+          required: true
+          description: Type of broadcast service. Valid values: tv, fm
+          schema:
+            type: string
+            enum:
+              - tv
+              - fm
+        - name: lat
+          in: query
+          required: true
+          description: Latitude of the transmitter site
+          schema:
+            type: number
+            format: double
+        - name: lon
+          in: query
+          required: true
+          description: Longitude of the transmitter site
+          schema:
+            type: number
+            format: double
+        - name: nradial
+          in: query
+          required: true
+          description: Number of radials
+          schema:
+            type: integer
+        - name: rcamsl
+          in: query
+          required: true
+          description: Radiation Center Above Mean Sea Level (meters)
+          schema:
+            type: number
+            format: double
+        - name: field
+          in: query
+          required: true
+          description: Field strength (dBu)
+          schema:
+            type: number
+            format: double
+        - name: channel
+          in: query
+          required: false
+          description: Channel (required for TV)
+          schema:
+            type: integer
+        - name: erp
+          in: query
+          required: true
+          description: Effective Radiation Power (kW)
+          schema:
+            type: number
+            format: double
+        - name: curve
+          in: query
+          required: true
+          description: "Type of propagation curve. 0: F(50,50), 1: F(50,10), 2: F(50,90)"
+          schema:
+            type: string
+            enum:
+              - "0"
+              - "1"
+              - "2"
+        - name: pattern
+          in: query
+          required: false
+          description: >
+            Radiation strength at various azimuths for directional antennas.
+            Provide azimuth,strength pairs separated by semicolons. Example: 0,0.63;10,0.57;
+          schema:
+            type: string
+        - name: ant_rotation
+          in: query
+          required: false
+          description: Antenna rotation (0-360, default 0)
+          schema:
+            type: string
+            default: "0"
+        - name: pop
+          in: query
+          required: false
+          description: Include population calculation
+          schema:
+            type: boolean
+            default: false
+        - name: area
+          in: query
+          required: false
+          description: Include coverage area calculation
+          schema:
+            type: boolean
+            default: false
+        - name: src
+          in: query
+          required: false
+          description: >
+            Elevation data source. NED 1 arc-second (ned_1), 1/3 arc-second (ned_13),
+            Alaska 2 arc-second (ned_2), or global dataset (globe30).
+          schema:
+            type: string
+            enum:
+              - ned_1
+              - ned_2
+              - globe30
+        - name: unit
+          in: query
+          required: false
+          description: "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+          schema:
+            type: string
+            enum:
+              - m
+              - mi
+              - ft
+            default: m
+      responses:
+        "200":
+          description: GeoJSON coverage contour data
+          content:
+            application/json:
+              schema:
+                type: object
+  /entity.json:
+    get:
+      tags:
+        - entity
+      operationId: getEntityCoverage
+      summary: Get Coverage Contour by Entity
+      description: >
+        Get coverage contour for a TV or FM station identified by call sign, facility ID,
+        or application ID.
+      parameters:
+        - name: serviceType
+          in: query
+          required: true
+          description: Type of broadcast service. Valid values: tv, fm
+          schema:
+            type: string
+            enum:
+              - tv
+              - fm
+        - name: callsign
+          in: query
+          required: false
+          description: Station call sign
+          schema:
+            type: string
+        - name: facilityId
+          in: query
+          required: false
+          description: FCC Facility ID
+          schema:
+            type: string
+        - name: applicationId
+          in: query
+          required: false
+          description: FCC Application ID
+          schema:
+            type: string
+        - name: nradial
+          in: query
+          required: false
+          description: Number of radials
+          schema:
+            type: integer
+        - name: field
+          in: query
+          required: false
+          description: Field strength (dBu) override
+          schema:
+            type: number
+            format: double
+        - name: curve
+          in: query
+          required: false
+          description: "Propagation curve: 0=F(50,50), 1=F(50,10), 2=F(50,90)"
+          schema:
+            type: string
+            enum:
+              - "0"
+              - "1"
+              - "2"
+        - name: pop
+          in: query
+          required: false
+          description: Include population calculation
+          schema:
+            type: boolean
+            default: false
+        - name: area
+          in: query
+          required: false
+          description: Include coverage area calculation
+          schema:
+            type: boolean
+            default: false
+        - name: src
+          in: query
+          required: false
+          description: Elevation data source
+          schema:
+            type: string
+            enum:
+              - ned_1
+              - ned_2
+              - globe30
+      responses:
+        "200":
+          description: GeoJSON coverage contour data for the specified entity
+          content:
+            application/json:
+              schema:
+                type: object
+  /antenna.json:
+    get:
+      tags:
+        - antenna
+      operationId: getAntenna
+      summary: Get Antenna Pattern Data
+      description: >
+        Get antenna pattern data for a TV or FM station identified by call sign,
+        facility ID, or application ID.
+      parameters:
+        - name: serviceType
+          in: query
+          required: true
+          description: Type of broadcast service. Valid values: tv, fm
+          schema:
+            type: string
+            enum:
+              - tv
+              - fm
+        - name: callsign
+          in: query
+          required: false
+          description: Station call sign
+          schema:
+            type: string
+        - name: facilityId
+          in: query
+          required: false
+          description: FCC Facility ID
+          schema:
+            type: string
+        - name: applicationId
+          in: query
+          required: false
+          description: FCC Application ID
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Antenna pattern data
+          content:
+            application/json:
+              schema:
+                type: object
+  /elevation.json:
+    get:
+      tags:
+        - elevation
+      operationId: getElevation
+      summary: Get Terrain Elevation
+      description: >
+        Get terrain elevation at a given latitude and longitude using national
+        elevation datasets.
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          description: Latitude in decimal degrees
+          schema:
+            type: number
+            format: double
+        - name: lon
+          in: query
+          required: true
+          description: Longitude in decimal degrees
+          schema:
+            type: number
+            format: double
+        - name: src
+          in: query
+          required: false
+          description: Elevation data source
+          schema:
+            type: string
+            enum:
+              - ned_1
+              - ned_2
+              - globe30
+        - name: unit
+          in: query
+          required: false
+          description: "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+          schema:
+            type: string
+            enum:
+              - m
+              - mi
+              - ft
+            default: m
+      responses:
+        "200":
+          description: Elevation data at the specified location
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elevation:
+                    type: number
+                    description: Elevation value in the requested unit
+  /haat.json:
+    get:
+      tags:
+        - haat
+      operationId: getHAAT
+      summary: Get Height Above Average Terrain (HAAT)
+      description: >
+        Calculate the Height Above Average Terrain (HAAT) for a given location,
+        number of radials, and radiation center height.
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          description: Latitude in decimal degrees
+          schema:
+            type: number
+            format: double
+        - name: lon
+          in: query
+          required: true
+          description: Longitude in decimal degrees
+          schema:
+            type: number
+            format: double
+        - name: nradial
+          in: query
+          required: false
+          description: Number of radials (default 360)
+          schema:
+            type: integer
+        - name: rcamsl
+          in: query
+          required: false
+          description: Radiation Center Above Mean Sea Level (meters)
+          schema:
+            type: number
+            format: double
+        - name: src
+          in: query
+          required: false
+          description: Elevation data source
+          schema:
+            type: string
+            enum:
+              - ned_1
+              - ned_2
+              - globe30
+        - name: unit
+          in: query
+          required: false
+          description: "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+          schema:
+            type: string
+            enum:
+              - m
+              - mi
+              - ft
+            default: m
+      responses:
+        "200":
+          description: HAAT calculation result
+          content:
+            application/json:
+              schema:
+                type: object
+  /profile.json:
+    get:
+      tags:
+        - profile
+      operationId: getProfile
+      summary: Get Terrain Elevation Profile
+      description: >
+        Get the terrain elevation profile along a path between two geographic points,
+        specified by a starting point plus azimuth, or start and end coordinates.
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          description: Latitude of the starting point in decimal degrees
+          schema:
+            type: number
+            format: double
+        - name: lon
+          in: query
+          required: true
+          description: Longitude of the starting point in decimal degrees
+          schema:
+            type: number
+            format: double
+        - name: azimuth
+          in: query
+          required: false
+          description: Azimuth direction from the start point (degrees)
+          schema:
+            type: number
+            format: double
+        - name: start
+          in: query
+          required: false
+          description: Start distance along the path (km)
+          schema:
+            type: number
+            format: double
+        - name: end
+          in: query
+          required: false
+          description: End distance along the path (km)
+          schema:
+            type: number
+            format: double
+        - name: num_points
+          in: query
+          required: false
+          description: Number of elevation sample points along the profile
+          schema:
+            type: integer
+        - name: src
+          in: query
+          required: false
+          description: Elevation data source
+          schema:
+            type: string
+            enum:
+              - ned_1
+              - ned_2
+              - globe30
+        - name: unit
+          in: query
+          required: false
+          description: "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+          schema:
+            type: string
+            enum:
+              - m
+              - mi
+              - ft
+            default: m
+      responses:
+        "200":
+          description: Array of elevation values along the profile
+          content:
+            application/json:
+              schema:
+                type: object
+  /distance.json:
+    get:
+      tags:
+        - distance
+      operationId: getDistance
+      summary: Calculate Distance Using F-Curve
+      description: >
+        Calculate the service distance or interfering distance using FCC F-curve
+        propagation models for TV or FM services.
+      parameters:
+        - name: computationMethod
+          in: query
+          required: false
+          description: Method for distance computation
+          schema:
+            type: string
+        - name: serviceType
+          in: query
+          required: false
+          description: Type of broadcast service. Valid values: tv, fm
+          schema:
+            type: string
+            enum:
+              - tv
+              - fm
+        - name: haat
+          in: query
+          required: false
+          description: Height Above Average Terrain (meters)
+          schema:
+            type: number
+            format: double
+        - name: channel
+          in: query
+          required: false
+          description: TV or FM channel number
+          schema:
+            type: integer
+        - name: field
+          in: query
+          required: false
+          description: Field strength (dBu)
+          schema:
+            type: number
+            format: double
+        - name: erp
+          in: query
+          required: false
+          description: Effective Radiation Power (kW)
+          schema:
+            type: number
+            format: double
+        - name: distance
+          in: query
+          required: false
+          description: Distance (km)
+          schema:
+            type: number
+            format: double
+        - name: curve
+          in: query
+          required: false
+          description: "Propagation curve: 0=F(50,50), 1=F(50,10), 2=F(50,90)"
+          schema:
+            type: string
+            enum:
+              - "0"
+              - "1"
+              - "2"
+      responses:
+        "200":
+          description: Distance calculation result
+          content:
+            application/json:
+              schema:
+                type: object
+  /getAmPattern.json:
+    get:
+      tags:
+        - am-pattern
+      operationId: getAmPattern
+      summary: Get AM Antenna Pattern
+      description: >
+        Get AM broadcast station antenna pattern data by facility ID, call sign,
+        or application ID.
+      parameters:
+        - name: idType
+          in: query
+          required: true
+          description: Type of identifier. Valid values: facilityId, callsign, applicationId
+          schema:
+            type: string
+            enum:
+              - facilityId
+              - callsign
+              - applicationId
+        - name: idValue
+          in: query
+          required: true
+          description: Value for the specified identifier type
+          schema:
+            type: string
+        - name: nradial
+          in: query
+          required: false
+          description: Number of radials
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: AM antenna pattern data
+          content:
+            application/json:
+              schema:
+                type: object
+  /project.json:
+    get:
+      tags:
+        - projection
+      operationId: projectCoordinates
+      summary: Project Coordinates Between CRS
+      description: >
+        Project a coordinate point from one coordinate reference system (CRS) to another,
+        such as from WGS84 to NAD83 or to various state plane systems.
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          description: Latitude in the input projection
+          schema:
+            type: number
+            format: double
+        - name: lon
+          in: query
+          required: true
+          description: Longitude in the input projection
+          schema:
+            type: number
+            format: double
+        - name: inProj
+          in: query
+          required: false
+          description: Input projection EPSG code or name
+          schema:
+            type: string
+        - name: outProj
+          in: query
+          required: false
+          description: Output projection EPSG code or name
+          schema:
+            type: string
+        - name: outType
+          in: query
+          required: false
+          description: Output format type
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Projected coordinates
+          content:
+            application/json:
+              schema:
+                type: object
+  /dd2dms.json:
+    get:
+      tags:
+        - coordinate-conversion
+      operationId: decimalDegreesToDMS
+      summary: Convert Decimal Degrees to DMS
+      description: >
+        Convert geographic coordinates from decimal degrees (DD) format to
+        degrees-minutes-seconds (DMS) format.
+      parameters:
+        - name: lat
+          in: query
+          required: true
+          description: Latitude in decimal degrees
+          schema:
+            type: number
+            format: double
+        - name: lon
+          in: query
+          required: true
+          description: Longitude in decimal degrees
+          schema:
+            type: number
+            format: double
+      responses:
+        "200":
+          description: Coordinates in degrees-minutes-seconds format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lat:
+                    type: string
+                    description: Latitude in DMS format
+                  lon:
+                    type: string
+                    description: Longitude in DMS format
+  /dms2dd.json:
+    get:
+      tags:
+        - coordinate-conversion
+      operationId: dmsToDecimalDegrees
+      summary: Convert DMS to Decimal Degrees
+      description: >
+        Convert geographic coordinates from degrees-minutes-seconds (DMS) format
+        to decimal degrees (DD) format.
+      parameters:
+        - name: latD
+          in: query
+          required: true
+          description: Latitude degrees
+          schema:
+            type: integer
+        - name: latM
+          in: query
+          required: true
+          description: Latitude minutes
+          schema:
+            type: integer
+        - name: latS
+          in: query
+          required: true
+          description: Latitude seconds
+          schema:
+            type: number
+            format: double
+        - name: latDi
+          in: query
+          required: true
+          description: Latitude direction (N or S)
+          schema:
+            type: string
+            enum:
+              - N
+              - S
+        - name: lonD
+          in: query
+          required: true
+          description: Longitude degrees
+          schema:
+            type: integer
+        - name: lonM
+          in: query
+          required: true
+          description: Longitude minutes
+          schema:
+            type: integer
+        - name: lonS
+          in: query
+          required: true
+          description: Longitude seconds
+          schema:
+            type: number
+            format: double
+        - name: lonDi
+          in: query
+          required: true
+          description: Longitude direction (E or W)
+          schema:
+            type: string
+            enum:
+              - E
+              - W
+      responses:
+        "200":
+          description: Coordinates in decimal degrees format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lat:
+                    type: number
+                    description: Latitude in decimal degrees
+                  lon:
+                    type: number
+                    description: Longitude in decimal degrees
