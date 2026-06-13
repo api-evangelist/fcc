@@ -1,0 +1,157 @@
+aid: fcc
+name: FCC (Federal Communications Commission)
+description: The Federal Communications Commission provides free public REST APIs for radio station license lookup, broadband coverage maps, spectrum auction data, broadcast contours, census block conversions, consumer complaint databases, electronic comment filings, and regulatory data. All APIs are free with no authentication required for most endpoints.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/fcc/refs/heads/main/apis.yml
+created: '2026-06-13'
+modified: '2026-06-13'
+specificationVersion: '0.19'
+tags:
+  - Federal Government
+  - Telecommunications
+  - Radio
+  - Broadband
+  - Spectrum
+  - Licensing
+  - Regulatory
+apis:
+  - aid: fcc:license-view
+    name: FCC License View API
+    description: Provides information about FCC-issued licenses for use of the nation's airwaves, including snapshots of license counts across different radio services such as 700 MHz, 800 MHz Cellular, AWS, PCS, BRS, EBS, and 2.3 GHz WCS bands.
+    humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
+    baseURL: https://data.fcc.gov/api/license-view
+    tags:
+      - Radio Licensing
+      - Spectrum
+    properties:
+      - type: Documentation
+        url: https://www.fcc.gov/reports-research/developers/license-view-api
+  - aid: fcc:spectrum-dashboard
+    name: FCC Spectrum Dashboard API
+    description: Returns a high-level overview of spectrum ownership across the United States within the 225 MHz to 3700 MHz frequency range, including call sign, licensee name, common name, radio service code, and market information.
+    humanURL: https://www.fcc.gov/reports-research/developers/spectrum-dashboard-api
+    baseURL: https://data.fcc.gov/api/spectrum-view
+    tags:
+      - Spectrum
+      - Auctions
+    properties:
+      - type: Documentation
+        url: https://www.fcc.gov/reports-research/developers/spectrum-dashboard-api
+  - aid: fcc:area-census-block
+    name: FCC Area and Census Block API
+    description: Returns market data, US Census Bureau Census Block population data, FIPS Code, and associated US State and County names based on latitude and longitude coordinates.
+    humanURL: https://www.fcc.gov/census-block-conversions-api
+    baseURL: https://geo.fcc.gov/api/census
+    tags:
+      - Census
+      - Geolocation
+      - Broadband
+    properties:
+      - type: Documentation
+        url: https://www.fcc.gov/census-block-conversions-api
+  - aid: fcc:contours
+    name: FCC Contours API
+    description: Returns broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation and Height Above Average Terrain (HAAT) data.
+    humanURL: https://geo.fcc.gov/api/contours/
+    baseURL: https://geo.fcc.gov/api/contours
+    tags:
+      - Radio
+      - Broadcast
+      - Television
+      - Coverage
+    properties:
+      - type: Documentation
+        url: https://geo.fcc.gov/api/contours/
+  - aid: fcc:ecfs
+    name: FCC Electronic Comment Filing System (ECFS) API
+    description: Enables external users and organizations to search the FCC Electronic Comment Filing System (ECFS) for regulatory filings and public comments without using the web interface. Free API key registration available.
+    humanURL: https://www.fcc.gov/ecfs/help/public_api
+    baseURL: https://ecfs.fcc.gov/api
+    tags:
+      - Regulatory Filings
+      - Public Comments
+      - ECFS
+    properties:
+      - type: Documentation
+        url: https://www.fcc.gov/ecfs/help/public_api
+      - type: Documentation
+        url: https://www.fcc.gov/ecfs/public-api-docs.html
+  - aid: fcc:consumer-complaints
+    name: FCC Consumer Complaints Center Data API
+    description: Provides access to consumer complaint data submitted to the FCC, including complaints about telephone, internet, television, and radio services.
+    humanURL: https://www.fcc.gov/consumer-help-center-api
+    baseURL: https://www.fcc.gov/consumer-help-center-api
+    tags:
+      - Consumer Complaints
+      - Telephone
+      - Internet
+    properties:
+      - type: Documentation
+        url: https://www.fcc.gov/consumer-help-center-api
+  - aid: fcc:public-inspection-files
+    name: FCC Public Inspection Files API
+    description: Provides programmatic access to public inspection files for broadcast, cable, satellite, and wireless telecommunications entities regulated by the FCC.
+    humanURL: https://publicfiles.fcc.gov/developer
+    baseURL: https://publicfiles.fcc.gov/api
+    tags:
+      - Public Files
+      - Broadcast
+      - Licensing
+    properties:
+      - type: Documentation
+        url: https://publicfiles.fcc.gov/developer
+  - aid: fcc:broadband-data-collection
+    name: FCC Broadband Data Collection (BDC) API
+    description: Allows ISPs and developers to interface with the FCC Broadband Data Collection system via API endpoints, including the ability to respond to fixed availability challenges programmatically.
+    humanURL: https://help.bdc.fcc.gov/hc/en-us/articles/16120522800283-Using-the-API-to-Respond-to-Fixed-Availability-Challenges
+    baseURL: https://broadbandmap.fcc.gov/api
+    tags:
+      - Broadband
+      - Coverage
+      - ISP
+    properties:
+      - type: Documentation
+        url: https://help.bdc.fcc.gov/hc/en-us/articles/16120522800283-Using-the-API-to-Respond-to-Fixed-Availability-Challenges
+      - type: GitHubRepository
+        url: https://github.com/FCC/bdcapi
+  - aid: fcc:content
+    name: FCC Content API
+    description: Makes FCC website content accessible to applications, leveraging Drupal as a content management system to deliver news, documents, and regulatory content programmatically.
+    humanURL: https://www.fcc.gov/reports-research/developers/fcc-content-api
+    baseURL: https://www.fcc.gov/api
+    tags:
+      - Content
+      - News
+      - Documents
+    properties:
+      - type: Documentation
+        url: https://www.fcc.gov/reports-research/developers/fcc-content-api
+common:
+  - type: Website
+    url: https://www.fcc.gov
+  - type: Documentation
+    url: https://www.fcc.gov/reports-research/developers
+  - type: GitHubOrg
+    url: https://github.com/FCC
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/federal-communications-commission
+  - type: Blog
+    url: https://www.fcc.gov/news-events
+  - type: Pricing
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+  - type: StatusPage
+    url: https://www.fcc.gov
+  - type: X
+    url: https://x.com/FCC
+  - type: Plans
+    url: plans/fcc-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/fcc-rate-limits.yml
+  - type: FinOps
+    url: finops/fcc-finops.yml
+  - type: TermsOfService
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

@@ -1,0 +1,26 @@
+name: FCC API Plans and Pricing
+description: The Federal Communications Commission provides all public APIs free of charge. There are no paid tiers or subscription plans. All APIs are available to anyone who agrees to the FCC API Terms of Service.
+url: https://www.fcc.gov/reports-research/developers/api-terms-service
+plans:
+  - name: Free Public Access
+    description: All FCC APIs are freely available to the public at no cost. No registration or API key is required for most endpoints. The ECFS API offers optional free key registration for enhanced access.
+    price: 0
+    currency: USD
+    billing: none
+    features:
+      - Access to all public FCC APIs
+      - License View API
+      - Spectrum Dashboard API
+      - Area and Census Block API
+      - Contours API (radio and TV coverage)
+      - Consumer Complaints Data API
+      - Electronic Comment Filing System (ECFS) API
+      - Public Inspection Files API
+      - Broadband Data Collection (BDC) API
+      - Content API
+    limits:
+      - type: authentication
+        description: No API key required for most endpoints; optional free key available for ECFS
+      - type: cost
+        description: Free — no charges for any FCC API usage
+    termsOfService: https://www.fcc.gov/reports-research/developers/api-terms-service

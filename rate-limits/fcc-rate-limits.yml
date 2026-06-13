@@ -1,0 +1,15 @@
+name: FCC API Rate Limits
+description: The FCC does not publish explicit numeric rate limits for its public APIs. As a government agency providing free data, the APIs are designed for general public access. Users are expected to use the APIs responsibly per the FCC API Terms of Service. Abusive usage patterns may result in access being blocked.
+url: https://www.fcc.gov/reports-research/developers/api-terms-service
+rateLimits:
+  - api: All FCC Public APIs
+    description: No officially published numeric rate limits. The FCC reserves the right to restrict access for abusive usage. Responsible, good-faith usage is expected per the Terms of Service.
+    published: false
+    notes:
+      - No API key required for most endpoints (except optional ECFS key)
+      - No published requests-per-second or daily request limits
+      - The FCC Terms of Service prohibit using APIs to impair or damage FCC systems
+      - The FCC may terminate or suspend access for violations
+      - Contact developer@fcc.gov for high-volume or commercial use questions
+    termsOfService: https://www.fcc.gov/reports-research/developers/api-terms-service
+    contact: developer@fcc.gov

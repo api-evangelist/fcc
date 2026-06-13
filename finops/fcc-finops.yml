@@ -1,0 +1,31 @@
+name: FCC API Financial Operations (FinOps)
+description: The FCC provides all public APIs at no cost as part of its mission as a federal government agency. There are no subscription fees, usage-based charges, or overage costs. API access is funded through the federal budget. Developers and organizations can use FCC APIs freely for commercial and non-commercial purposes subject to the Terms of Service.
+url: https://www.fcc.gov/reports-research/developers/api-terms-service
+finops:
+  model: free-public
+  cost: 0
+  currency: USD
+  billing: none
+  description: All FCC APIs are provided free of charge as a public service of the United States Federal Government.
+  costDrivers:
+    - name: API Calls
+      cost: 0
+      description: No charge per API call regardless of volume (subject to fair use)
+    - name: Data Access
+      cost: 0
+      description: No charge for accessing license, spectrum, broadband, contour, or complaint data
+    - name: API Key Registration
+      cost: 0
+      description: Free optional API key registration available for ECFS
+  budgetingGuidance:
+    - Budget $0 for FCC API access fees
+    - No rate limit overage charges
+    - No data egress fees
+    - Factor in developer time for integration and maintenance
+    - Consider bandwidth costs on the consumer side for large dataset downloads
+  notes:
+    - FCC APIs are funded by the US federal government
+    - Commercial use is permitted under the Terms of Service
+    - Attribution to the FCC as the data source is recommended
+    - Contact developer@fcc.gov for enterprise or high-volume use cases
+  termsOfService: https://www.fcc.gov/reports-research/developers/api-terms-service
