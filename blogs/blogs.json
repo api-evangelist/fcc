@@ -2,13 +2,16 @@
   "repo": "fcc",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/federal-communications-commission",
-      "feed_url": "https://www.linkedin.com/company/federal-communications-commission",
-      "title": "",
+      "source": "https://www.fcc.gov/news-events",
       "saved": 0,
-      "method": "none"
+      "error": "timeout fetching blog listing"
+    },
+    {
+      "source": "https://www.linkedin.com/company/federal-communications-commission",
+      "saved": 0,
+      "error": "HTTPError"
     }
   ],
   "post_count": 0,
-  "fetched": "2026-06-14T20:42:17Z"
+  "fetched": "2026-06-27T12:41:08Z"
 }
