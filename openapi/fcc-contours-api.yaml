@@ -52,7 +52,7 @@ paths:
         - name: serviceType
           in: query
           required: true
-          description: Type of broadcast service. Valid values: tv, fm
+          description: "Type of broadcast service. Valid values: tv, fm"
           schema:
             type: string
             enum:
@@ -187,7 +187,7 @@ paths:
         - name: serviceType
           in: query
           required: true
-          description: Type of broadcast service. Valid values: tv, fm
+          description: "Type of broadcast service. Valid values: tv, fm"
           schema:
             type: string
             enum:
@@ -278,7 +278,7 @@ paths:
         - name: serviceType
           in: query
           required: true
-          description: Type of broadcast service. Valid values: tv, fm
+          description: "Type of broadcast service. Valid values: tv, fm"
           schema:
             type: string
             enum:
@@ -528,7 +528,7 @@ paths:
         - name: serviceType
           in: query
           required: false
-          description: Type of broadcast service. Valid values: tv, fm
+          description: "Type of broadcast service. Valid values: tv, fm"
           schema:
             type: string
             enum:
@@ -598,7 +598,7 @@ paths:
         - name: idType
           in: query
           required: true
-          description: Type of identifier. Valid values: facilityId, callsign, applicationId
+          description: "Type of identifier. Valid values: facilityId, callsign, applicationId"
           schema:
             type: string
             enum:
