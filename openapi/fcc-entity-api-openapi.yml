@@ -1,0 +1,111 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Entity API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: entity
+  description: Get coverage contour by entity (call sign, facility ID, or application ID)
+paths:
+  /entity.json:
+    get:
+      tags:
+      - entity
+      operationId: getEntityCoverage
+      summary: Get Coverage Contour by Entity
+      description: 'Get coverage contour for a TV or FM station identified by call sign, facility ID, or application ID.
+
+        '
+      parameters:
+      - name: serviceType
+        in: query
+        required: true
+        description: 'Type of broadcast service. Valid values: tv, fm'
+        schema:
+          type: string
+          enum:
+          - tv
+          - fm
+      - name: callsign
+        in: query
+        required: false
+        description: Station call sign
+        schema:
+          type: string
+      - name: facilityId
+        in: query
+        required: false
+        description: FCC Facility ID
+        schema:
+          type: string
+      - name: applicationId
+        in: query
+        required: false
+        description: FCC Application ID
+        schema:
+          type: string
+      - name: nradial
+        in: query
+        required: false
+        description: Number of radials
+        schema:
+          type: integer
+      - name: field
+        in: query
+        required: false
+        description: Field strength (dBu) override
+        schema:
+          type: number
+          format: double
+      - name: curve
+        in: query
+        required: false
+        description: 'Propagation curve: 0=F(50,50), 1=F(50,10), 2=F(50,90)'
+        schema:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+      - name: pop
+        in: query
+        required: false
+        description: Include population calculation
+        schema:
+          type: boolean
+          default: false
+      - name: area
+        in: query
+        required: false
+        description: Include coverage area calculation
+        schema:
+          type: boolean
+          default: false
+      - name: src
+        in: query
+        required: false
+        description: Elevation data source
+        schema:
+          type: string
+          enum:
+          - ned_1
+          - ned_2
+          - globe30
+      responses:
+        '200':
+          description: GeoJSON coverage contour data for the specified entity
+          content:
+            application/json:
+              schema:
+                type: object

@@ -1,0 +1,104 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Coordinate Conversion API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "coordinate-conversion",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Convert Decimal Degrees to DMS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/dd2dms.json",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude in decimal degrees"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude in decimal degrees"
+              }
+            ]
+          },
+          "docs": "Convert geographic coordinates from decimal degrees (DD) format to degrees-minutes-seconds (DMS) format.\n"
+        },
+        {
+          "info": {
+            "name": "Convert DMS to Decimal Degrees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/dms2dd.json",
+            "params": [
+              {
+                "name": "latD",
+                "value": "",
+                "type": "query",
+                "description": "Latitude degrees"
+              },
+              {
+                "name": "latM",
+                "value": "",
+                "type": "query",
+                "description": "Latitude minutes"
+              },
+              {
+                "name": "latS",
+                "value": "",
+                "type": "query",
+                "description": "Latitude seconds"
+              },
+              {
+                "name": "latDi",
+                "value": "",
+                "type": "query",
+                "description": "Latitude direction (N or S)"
+              },
+              {
+                "name": "lonD",
+                "value": "",
+                "type": "query",
+                "description": "Longitude degrees"
+              },
+              {
+                "name": "lonM",
+                "value": "",
+                "type": "query",
+                "description": "Longitude minutes"
+              },
+              {
+                "name": "lonS",
+                "value": "",
+                "type": "query",
+                "description": "Longitude seconds"
+              },
+              {
+                "name": "lonDi",
+                "value": "",
+                "type": "query",
+                "description": "Longitude direction (E or W)"
+              }
+            ]
+          },
+          "docs": "Convert geographic coordinates from degrees-minutes-seconds (DMS) format to decimal degrees (DD) format.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,59 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Am Pattern API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: am-pattern
+  description: Get AM antenna pattern data
+paths:
+  /getAmPattern.json:
+    get:
+      tags:
+      - am-pattern
+      operationId: getAmPattern
+      summary: Get AM Antenna Pattern
+      description: 'Get AM broadcast station antenna pattern data by facility ID, call sign, or application ID.
+
+        '
+      parameters:
+      - name: idType
+        in: query
+        required: true
+        description: 'Type of identifier. Valid values: facilityId, callsign, applicationId'
+        schema:
+          type: string
+          enum:
+          - facilityId
+          - callsign
+          - applicationId
+      - name: idValue
+        in: query
+        required: true
+        description: Value for the specified identifier type
+        schema:
+          type: string
+      - name: nradial
+        in: query
+        required: false
+        description: Number of radials
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: AM antenna pattern data
+          content:
+            application/json:
+              schema:
+                type: object

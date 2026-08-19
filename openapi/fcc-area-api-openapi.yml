@@ -1,0 +1,107 @@
+openapi: 3.2.0
+info:
+  title: FCC and Census Block Area API
+  description: 'The FCC Area and Census Block API returns US Census Bureau Census Block FIPS codes, county FIPS codes, state FIPS codes, and associated US State and County names based on latitude and longitude coordinates. Also returns market data and population data. All endpoints are free with no authentication required.
+
+    '
+  version: 1.0.0
+  contact:
+    name: Federal Communications Commission
+    url: https://www.fcc.gov/census-block-conversions-api
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/census
+  description: FCC Census/Area API
+tags:
+- name: area
+  description: Get market area data by latitude and longitude
+paths:
+  /area:
+    get:
+      tags:
+      - area
+      operationId: getArea
+      summary: Get Market Area Data
+      description: 'Returns market data for a location based on latitude and longitude, including US Census Bureau Census Block population data and FCC market information.
+
+        '
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude in decimal degrees (e.g., 38.26)
+        schema:
+          type: number
+          format: double
+      - name: lon
+        in: query
+        required: true
+        description: Longitude in decimal degrees (e.g., -77.51)
+        schema:
+          type: number
+          format: double
+      - name: censusYear
+        in: query
+        required: false
+        description: 'Census year for data. Valid values: 2010, 2020 (default)'
+        schema:
+          type: integer
+          enum:
+          - 2010
+          - 2020
+          default: 2020
+      - name: format
+        in: query
+        required: false
+        description: Response format. Defaults to xml.
+        schema:
+          type: string
+          enum:
+          - xml
+          - json
+          - jsonp
+          default: xml
+      responses:
+        '200':
+          description: Market area data for the specified location
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AreaResponse'
+            text/xml:
+              schema:
+                type: string
+components:
+  schemas:
+    AreaResponse:
+      type: object
+      properties:
+        status:
+          type: string
+          description: Status of the response (OK or error message)
+          example: OK
+        executionTime:
+          type: string
+          description: Time taken to execute the query
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              block_fips:
+                type: string
+                description: Census Block FIPS code
+              county_fips:
+                type: string
+                description: County FIPS code
+              state_fips:
+                type: string
+                description: State FIPS code
+              county_name:
+                type: string
+                description: County name
+              state_name:
+                type: string
+                description: State name

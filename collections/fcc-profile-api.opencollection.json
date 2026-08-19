@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Profile API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "profile",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Terrain Elevation Profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/profile.json",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the starting point in decimal degrees"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the starting point in decimal degrees"
+              },
+              {
+                "name": "azimuth",
+                "value": "",
+                "type": "query",
+                "description": "Azimuth direction from the start point (degrees)"
+              },
+              {
+                "name": "start",
+                "value": "",
+                "type": "query",
+                "description": "Start distance along the path (km)"
+              },
+              {
+                "name": "end",
+                "value": "",
+                "type": "query",
+                "description": "End distance along the path (km)"
+              },
+              {
+                "name": "num_points",
+                "value": "",
+                "type": "query",
+                "description": "Number of elevation sample points along the profile"
+              },
+              {
+                "name": "src",
+                "value": "",
+                "type": "query",
+                "description": "Elevation data source"
+              },
+              {
+                "name": "unit",
+                "value": "",
+                "type": "query",
+                "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+              }
+            ]
+          },
+          "docs": "Get the terrain elevation profile along a path between two geographic points, specified by a starting point plus azimuth, or start and end coordinates.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

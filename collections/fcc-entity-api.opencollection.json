@@ -1,0 +1,91 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Entity API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "entity",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Coverage Contour by Entity",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/entity.json",
+            "params": [
+              {
+                "name": "serviceType",
+                "value": "",
+                "type": "query",
+                "description": "Type of broadcast service. Valid values: tv, fm"
+              },
+              {
+                "name": "callsign",
+                "value": "",
+                "type": "query",
+                "description": "Station call sign"
+              },
+              {
+                "name": "facilityId",
+                "value": "",
+                "type": "query",
+                "description": "FCC Facility ID"
+              },
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "query",
+                "description": "FCC Application ID"
+              },
+              {
+                "name": "nradial",
+                "value": "",
+                "type": "query",
+                "description": "Number of radials"
+              },
+              {
+                "name": "field",
+                "value": "",
+                "type": "query",
+                "description": "Field strength (dBu) override"
+              },
+              {
+                "name": "curve",
+                "value": "",
+                "type": "query",
+                "description": "Propagation curve: 0=F(50,50), 1=F(50,10), 2=F(50,90)"
+              },
+              {
+                "name": "pop",
+                "value": "",
+                "type": "query",
+                "description": "Include population calculation"
+              },
+              {
+                "name": "area",
+                "value": "",
+                "type": "query",
+                "description": "Include coverage area calculation"
+              },
+              {
+                "name": "src",
+                "value": "",
+                "type": "query",
+                "description": "Elevation data source"
+              }
+            ]
+          },
+          "docs": "Get coverage contour for a TV or FM station identified by call sign, facility ID, or application ID.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,155 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Coverage API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: coverage
+  description: Get service contour for TV and FM stations
+paths:
+  /coverage.json:
+    get:
+      tags:
+      - coverage
+      operationId: getCoverage
+      summary: Get Contour by Service Type
+      description: 'Get contour based on serviceType (FM, TV). Response returned in GeoJSON, JSONP, Shapefile, KML, GML, CSV.
+
+        '
+      parameters:
+      - name: serviceType
+        in: query
+        required: true
+        description: 'Type of broadcast service. Valid values: tv, fm'
+        schema:
+          type: string
+          enum:
+          - tv
+          - fm
+      - name: lat
+        in: query
+        required: true
+        description: Latitude of the transmitter site
+        schema:
+          type: number
+          format: double
+      - name: lon
+        in: query
+        required: true
+        description: Longitude of the transmitter site
+        schema:
+          type: number
+          format: double
+      - name: nradial
+        in: query
+        required: true
+        description: Number of radials
+        schema:
+          type: integer
+      - name: rcamsl
+        in: query
+        required: true
+        description: Radiation Center Above Mean Sea Level (meters)
+        schema:
+          type: number
+          format: double
+      - name: field
+        in: query
+        required: true
+        description: Field strength (dBu)
+        schema:
+          type: number
+          format: double
+      - name: channel
+        in: query
+        required: false
+        description: Channel (required for TV)
+        schema:
+          type: integer
+      - name: erp
+        in: query
+        required: true
+        description: Effective Radiation Power (kW)
+        schema:
+          type: number
+          format: double
+      - name: curve
+        in: query
+        required: true
+        description: 'Type of propagation curve. 0: F(50,50), 1: F(50,10), 2: F(50,90)'
+        schema:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+      - name: pattern
+        in: query
+        required: false
+        description: 'Radiation strength at various azimuths for directional antennas. Provide azimuth,strength pairs separated by semicolons. Example: 0,0.63;10,0.57;
+
+          '
+        schema:
+          type: string
+      - name: ant_rotation
+        in: query
+        required: false
+        description: Antenna rotation (0-360, default 0)
+        schema:
+          type: string
+          default: '0'
+      - name: pop
+        in: query
+        required: false
+        description: Include population calculation
+        schema:
+          type: boolean
+          default: false
+      - name: area
+        in: query
+        required: false
+        description: Include coverage area calculation
+        schema:
+          type: boolean
+          default: false
+      - name: src
+        in: query
+        required: false
+        description: 'Elevation data source. NED 1 arc-second (ned_1), 1/3 arc-second (ned_13), Alaska 2 arc-second (ned_2), or global dataset (globe30).
+
+          '
+        schema:
+          type: string
+          enum:
+          - ned_1
+          - ned_2
+          - globe30
+      - name: unit
+        in: query
+        required: false
+        description: 'Unit of measurement: m=meters (default), mi=miles, ft=feet'
+        schema:
+          type: string
+          enum:
+          - m
+          - mi
+          - ft
+          default: m
+      responses:
+        '200':
+          description: GeoJSON coverage contour data
+          content:
+            application/json:
+              schema:
+                type: object

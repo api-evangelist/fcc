@@ -1,0 +1,76 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Elevation API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: elevation
+  description: Get terrain elevation data at a given location
+paths:
+  /elevation.json:
+    get:
+      tags:
+      - elevation
+      operationId: getElevation
+      summary: Get Terrain Elevation
+      description: 'Get terrain elevation at a given latitude and longitude using national elevation datasets.
+
+        '
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude in decimal degrees
+        schema:
+          type: number
+          format: double
+      - name: lon
+        in: query
+        required: true
+        description: Longitude in decimal degrees
+        schema:
+          type: number
+          format: double
+      - name: src
+        in: query
+        required: false
+        description: Elevation data source
+        schema:
+          type: string
+          enum:
+          - ned_1
+          - ned_2
+          - globe30
+      - name: unit
+        in: query
+        required: false
+        description: 'Unit of measurement: m=meters (default), mi=miles, ft=feet'
+        schema:
+          type: string
+          enum:
+          - m
+          - mi
+          - ft
+          default: m
+      responses:
+        '200':
+          description: Elevation data at the specified location
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  elevation:
+                    type: number
+                    description: Elevation value in the requested unit

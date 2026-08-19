@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Elevation API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "elevation",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Terrain Elevation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/elevation.json",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude in decimal degrees"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude in decimal degrees"
+              },
+              {
+                "name": "src",
+                "value": "",
+                "type": "query",
+                "description": "Elevation data source"
+              },
+              {
+                "name": "unit",
+                "value": "",
+                "type": "query",
+                "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+              }
+            ]
+          },
+          "docs": "Get terrain elevation at a given latitude and longitude using national elevation datasets.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

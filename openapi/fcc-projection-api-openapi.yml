@@ -1,0 +1,69 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Projection API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: projection
+  description: Project coordinates between coordinate reference systems
+paths:
+  /project.json:
+    get:
+      tags:
+      - projection
+      operationId: projectCoordinates
+      summary: Project Coordinates Between CRS
+      description: 'Project a coordinate point from one coordinate reference system (CRS) to another, such as from WGS84 to NAD83 or to various state plane systems.
+
+        '
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude in the input projection
+        schema:
+          type: number
+          format: double
+      - name: lon
+        in: query
+        required: true
+        description: Longitude in the input projection
+        schema:
+          type: number
+          format: double
+      - name: inProj
+        in: query
+        required: false
+        description: Input projection EPSG code or name
+        schema:
+          type: string
+      - name: outProj
+        in: query
+        required: false
+        description: Output projection EPSG code or name
+        schema:
+          type: string
+      - name: outType
+        in: query
+        required: false
+        description: Output format type
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Projected coordinates
+          content:
+            application/json:
+              schema:
+                type: object

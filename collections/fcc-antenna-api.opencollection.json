@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Antenna API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "antenna",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Antenna Pattern Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/antenna.json",
+            "params": [
+              {
+                "name": "serviceType",
+                "value": "",
+                "type": "query",
+                "description": "Type of broadcast service. Valid values: tv, fm"
+              },
+              {
+                "name": "callsign",
+                "value": "",
+                "type": "query",
+                "description": "Station call sign"
+              },
+              {
+                "name": "facilityId",
+                "value": "",
+                "type": "query",
+                "description": "FCC Facility ID"
+              },
+              {
+                "name": "applicationId",
+                "value": "",
+                "type": "query",
+                "description": "FCC Application ID"
+              }
+            ]
+          },
+          "docs": "Get antenna pattern data for a TV or FM station identified by call sign, facility ID, or application ID.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

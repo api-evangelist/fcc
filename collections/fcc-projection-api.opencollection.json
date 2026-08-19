@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Projection API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "projection",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Project Coordinates Between CRS",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/project.json",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude in the input projection"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude in the input projection"
+              },
+              {
+                "name": "inProj",
+                "value": "",
+                "type": "query",
+                "description": "Input projection EPSG code or name"
+              },
+              {
+                "name": "outProj",
+                "value": "",
+                "type": "query",
+                "description": "Output projection EPSG code or name"
+              },
+              {
+                "name": "outType",
+                "value": "",
+                "type": "query",
+                "description": "Output format type"
+              }
+            ]
+          },
+          "docs": "Project a coordinate point from one coordinate reference system (CRS) to another, such as from WGS84 to NAD83 or to various state plane systems.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

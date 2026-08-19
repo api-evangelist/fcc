@@ -1,0 +1,184 @@
+{
+  "item": [
+    {
+      "id": "468ef8ad-c052-4cb6-9742-033287955eaf",
+      "name": "profile",
+      "description": {
+        "content": "Get terrain elevation profile between two points",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "44d22595-6cac-458f-94d2-073305fb03c1",
+          "name": "Get Terrain Elevation Profile",
+          "request": {
+            "name": "Get Terrain Elevation Profile",
+            "description": {
+              "content": "Get the terrain elevation profile along a path between two geographic points, specified by a starting point plus azimuth, or start and end coordinates.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "profile.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "(Required) Latitude of the starting point in decimal degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<double>",
+                  "description": "(Required) Longitude of the starting point in decimal degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "azimuth",
+                  "value": "<double>",
+                  "description": "Azimuth direction from the start point (degrees)"
+                },
+                {
+                  "disabled": false,
+                  "key": "start",
+                  "value": "<double>",
+                  "description": "Start distance along the path (km)"
+                },
+                {
+                  "disabled": false,
+                  "key": "end",
+                  "value": "<double>",
+                  "description": "End distance along the path (km)"
+                },
+                {
+                  "disabled": false,
+                  "key": "num_points",
+                  "value": "<integer>",
+                  "description": "Number of elevation sample points along the profile"
+                },
+                {
+                  "disabled": false,
+                  "key": "src",
+                  "value": "<string>",
+                  "description": "Elevation data source"
+                },
+                {
+                  "disabled": false,
+                  "key": "unit",
+                  "value": "m",
+                  "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c6ba0859-37a5-44b9-b61d-7561dd885ad3",
+              "name": "Array of elevation values along the profile",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "profile.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "azimuth",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "start",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "end",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "num_points",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "src",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "m"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b1f19ae1-76b5-4d09-831f-d3800eab0e86",
+    "name": "FCC Contours Profile API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

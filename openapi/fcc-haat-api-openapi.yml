@@ -1,0 +1,85 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Haat API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: haat
+  description: Get Height Above Average Terrain (HAAT) data
+paths:
+  /haat.json:
+    get:
+      tags:
+      - haat
+      operationId: getHAAT
+      summary: Get Height Above Average Terrain (HAAT)
+      description: 'Calculate the Height Above Average Terrain (HAAT) for a given location, number of radials, and radiation center height.
+
+        '
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude in decimal degrees
+        schema:
+          type: number
+          format: double
+      - name: lon
+        in: query
+        required: true
+        description: Longitude in decimal degrees
+        schema:
+          type: number
+          format: double
+      - name: nradial
+        in: query
+        required: false
+        description: Number of radials (default 360)
+        schema:
+          type: integer
+      - name: rcamsl
+        in: query
+        required: false
+        description: Radiation Center Above Mean Sea Level (meters)
+        schema:
+          type: number
+          format: double
+      - name: src
+        in: query
+        required: false
+        description: Elevation data source
+        schema:
+          type: string
+          enum:
+          - ned_1
+          - ned_2
+          - globe30
+      - name: unit
+        in: query
+        required: false
+        description: 'Unit of measurement: m=meters (default), mi=miles, ft=feet'
+        schema:
+          type: string
+          enum:
+          - m
+          - mi
+          - ft
+          default: m
+      responses:
+        '200':
+          description: HAAT calculation result
+          content:
+            application/json:
+              schema:
+                type: object

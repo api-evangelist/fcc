@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "c2745830-76f2-4c35-9610-c85ecf18c7c0",
+      "name": "antenna",
+      "description": {
+        "content": "Get antenna pattern data for TV and FM stations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dd6d90f9-c28f-40d5-b3ef-4cd263872e49",
+          "name": "Get Antenna Pattern Data",
+          "request": {
+            "name": "Get Antenna Pattern Data",
+            "description": {
+              "content": "Get antenna pattern data for a TV or FM station identified by call sign, facility ID, or application ID.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "antenna.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serviceType",
+                  "value": "<string>",
+                  "description": "(Required) Type of broadcast service. Valid values: tv, fm"
+                },
+                {
+                  "disabled": false,
+                  "key": "callsign",
+                  "value": "<string>",
+                  "description": "Station call sign"
+                },
+                {
+                  "disabled": false,
+                  "key": "facilityId",
+                  "value": "<string>",
+                  "description": "FCC Facility ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "applicationId",
+                  "value": "<string>",
+                  "description": "FCC Application ID"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "26537aeb-e2ea-40bc-bfa0-76a0c3724f96",
+              "name": "Antenna pattern data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "antenna.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "facilityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "applicationId",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f1382b72-e61c-4df9-8e0b-cc98c2d7c6e1",
+    "name": "FCC Contours Antenna API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

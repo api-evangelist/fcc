@@ -1,0 +1,96 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Distance API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: distance
+  description: Calculate distance using F-curve propagation curves
+paths:
+  /distance.json:
+    get:
+      tags:
+      - distance
+      operationId: getDistance
+      summary: Calculate Distance Using F-Curve
+      description: 'Calculate the service distance or interfering distance using FCC F-curve propagation models for TV or FM services.
+
+        '
+      parameters:
+      - name: computationMethod
+        in: query
+        required: false
+        description: Method for distance computation
+        schema:
+          type: string
+      - name: serviceType
+        in: query
+        required: false
+        description: 'Type of broadcast service. Valid values: tv, fm'
+        schema:
+          type: string
+          enum:
+          - tv
+          - fm
+      - name: haat
+        in: query
+        required: false
+        description: Height Above Average Terrain (meters)
+        schema:
+          type: number
+          format: double
+      - name: channel
+        in: query
+        required: false
+        description: TV or FM channel number
+        schema:
+          type: integer
+      - name: field
+        in: query
+        required: false
+        description: Field strength (dBu)
+        schema:
+          type: number
+          format: double
+      - name: erp
+        in: query
+        required: false
+        description: Effective Radiation Power (kW)
+        schema:
+          type: number
+          format: double
+      - name: distance
+        in: query
+        required: false
+        description: Distance (km)
+        schema:
+          type: number
+          format: double
+      - name: curve
+        in: query
+        required: false
+        description: 'Propagation curve: 0=F(50,50), 1=F(50,10), 2=F(50,90)'
+        schema:
+          type: string
+          enum:
+          - '0'
+          - '1'
+          - '2'
+      responses:
+        '200':
+          description: Distance calculation result
+          content:
+            application/json:
+              schema:
+                type: object

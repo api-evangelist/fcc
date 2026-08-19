@@ -1,0 +1,276 @@
+{
+  "item": [
+    {
+      "id": "2f422ed4-22ea-4200-b335-3979a19db750",
+      "name": "coordinate-conversion",
+      "description": {
+        "content": "Convert between decimal degrees and degrees-minutes-seconds",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e72fed1b-fb4b-48b3-be79-1c8d44a76dca",
+          "name": "Convert Decimal Degrees to DMS",
+          "request": {
+            "name": "Convert Decimal Degrees to DMS",
+            "description": {
+              "content": "Convert geographic coordinates from decimal degrees (DD) format to degrees-minutes-seconds (DMS) format.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dd2dms.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "(Required) Latitude in decimal degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<double>",
+                  "description": "(Required) Longitude in decimal degrees"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6c59b20e-698a-4b0c-9453-102227fb211e",
+              "name": "Coordinates in degrees-minutes-seconds format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dd2dms.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<double>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lat\": \"string\",\n  \"lon\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f78ae9b4-cd6d-46e6-b2ff-75f6e0b74485",
+          "name": "Convert DMS to Decimal Degrees",
+          "request": {
+            "name": "Convert DMS to Decimal Degrees",
+            "description": {
+              "content": "Convert geographic coordinates from degrees-minutes-seconds (DMS) format to decimal degrees (DD) format.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "dms2dd.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "latD",
+                  "value": "<integer>",
+                  "description": "(Required) Latitude degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "latM",
+                  "value": "<integer>",
+                  "description": "(Required) Latitude minutes"
+                },
+                {
+                  "disabled": false,
+                  "key": "latS",
+                  "value": "<double>",
+                  "description": "(Required) Latitude seconds"
+                },
+                {
+                  "disabled": false,
+                  "key": "latDi",
+                  "value": "<string>",
+                  "description": "(Required) Latitude direction (N or S)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lonD",
+                  "value": "<integer>",
+                  "description": "(Required) Longitude degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "lonM",
+                  "value": "<integer>",
+                  "description": "(Required) Longitude minutes"
+                },
+                {
+                  "disabled": false,
+                  "key": "lonS",
+                  "value": "<double>",
+                  "description": "(Required) Longitude seconds"
+                },
+                {
+                  "disabled": false,
+                  "key": "lonDi",
+                  "value": "<string>",
+                  "description": "(Required) Longitude direction (E or W)"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "23ae47e1-6e74-489b-8030-d03a128c5286",
+              "name": "Coordinates in decimal degrees format",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "dms2dd.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "latD",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "latM",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "latS",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "latDi",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lonD",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lonM",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "lonS",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lonDi",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"lat\": 6601.623076692485,\n  \"lon\": 9424.86595553417\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "4435aab0-0691-4a96-9e0b-2f2a1a0d389e",
+    "name": "FCC Contours Coordinate Conversion API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

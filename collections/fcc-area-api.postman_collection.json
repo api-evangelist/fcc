@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "0afc4bf1-1d54-4ed0-9698-a846bd3559cb",
+      "name": "area",
+      "description": {
+        "content": "Get market area data by latitude and longitude",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "92293081-c0ac-4268-952c-10180209bd86",
+          "name": "Get Market Area Data",
+          "request": {
+            "name": "Get Market Area Data",
+            "description": {
+              "content": "Returns market data for a location based on latitude and longitude, including US Census Bureau Census Block population data and FCC market information.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "area"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "(Required) Latitude in decimal degrees (e.g., 38.26)"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<double>",
+                  "description": "(Required) Longitude in decimal degrees (e.g., -77.51)"
+                },
+                {
+                  "disabled": false,
+                  "key": "censusYear",
+                  "value": "2020",
+                  "description": "Census year for data. Valid values: 2010, 2020 (default)"
+                },
+                {
+                  "disabled": false,
+                  "key": "format",
+                  "value": "xml",
+                  "description": "Response format. Defaults to xml."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "031e9f9f-5e07-40ec-a0f8-31a5c64ae34f",
+              "name": "Market area data for the specified location",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "area"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "censusYear",
+                      "value": "2020"
+                    },
+                    {
+                      "key": "format",
+                      "value": "xml"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"status\": \"OK\",\n  \"executionTime\": \"string\",\n  \"results\": [\n    {\n      \"block_fips\": \"string\",\n      \"county_fips\": \"string\",\n      \"state_fips\": \"string\",\n      \"county_name\": \"string\",\n      \"state_name\": \"string\"\n    },\n    {\n      \"block_fips\": \"string\",\n      \"county_fips\": \"string\",\n      \"state_fips\": \"string\",\n      \"county_name\": \"string\",\n      \"state_name\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/census",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "25743533-bfa9-42e2-b845-b1255fedccda",
+    "name": "FCC and Census Block Area API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Area and Census Block API returns US Census Bureau Census Block FIPS codes, county FIPS codes, state FIPS codes, and associated US State and County names based on latitude and longitude coordinates. Also returns market data and population data. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

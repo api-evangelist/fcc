@@ -1,0 +1,204 @@
+{
+  "item": [
+    {
+      "id": "1a5e0a08-01c5-4f93-b123-b810664f0b14",
+      "name": "entity",
+      "description": {
+        "content": "Get coverage contour by entity (call sign, facility ID, or application ID)",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "ceed5b2e-69f7-418f-84e9-4ace6b802aa0",
+          "name": "Get Coverage Contour by Entity",
+          "request": {
+            "name": "Get Coverage Contour by Entity",
+            "description": {
+              "content": "Get coverage contour for a TV or FM station identified by call sign, facility ID, or application ID.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "entity.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serviceType",
+                  "value": "<string>",
+                  "description": "(Required) Type of broadcast service. Valid values: tv, fm"
+                },
+                {
+                  "disabled": false,
+                  "key": "callsign",
+                  "value": "<string>",
+                  "description": "Station call sign"
+                },
+                {
+                  "disabled": false,
+                  "key": "facilityId",
+                  "value": "<string>",
+                  "description": "FCC Facility ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "applicationId",
+                  "value": "<string>",
+                  "description": "FCC Application ID"
+                },
+                {
+                  "disabled": false,
+                  "key": "nradial",
+                  "value": "<integer>",
+                  "description": "Number of radials"
+                },
+                {
+                  "disabled": false,
+                  "key": "field",
+                  "value": "<double>",
+                  "description": "Field strength (dBu) override"
+                },
+                {
+                  "disabled": false,
+                  "key": "curve",
+                  "value": "<string>",
+                  "description": "Propagation curve: 0=F(50,50), 1=F(50,10), 2=F(50,90)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pop",
+                  "value": "false",
+                  "description": "Include population calculation"
+                },
+                {
+                  "disabled": false,
+                  "key": "area",
+                  "value": "false",
+                  "description": "Include coverage area calculation"
+                },
+                {
+                  "disabled": false,
+                  "key": "src",
+                  "value": "<string>",
+                  "description": "Elevation data source"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "70f35711-acbc-4a66-978a-e26b2f6d1046",
+              "name": "GeoJSON coverage contour data for the specified entity",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "entity.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "callsign",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "facilityId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "applicationId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nradial",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "field",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "curve",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pop",
+                      "value": "false"
+                    },
+                    {
+                      "key": "area",
+                      "value": "false"
+                    },
+                    {
+                      "key": "src",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "3382c539-f2a4-4b10-b0c1-d6f6c309b0fb",
+    "name": "FCC Contours Entity API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

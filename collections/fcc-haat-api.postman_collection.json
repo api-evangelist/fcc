@@ -1,0 +1,164 @@
+{
+  "item": [
+    {
+      "id": "b926a29e-bdb8-4981-8d10-c61a77ff4fc9",
+      "name": "haat",
+      "description": {
+        "content": "Get Height Above Average Terrain (HAAT) data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "072d0ea5-20e7-439c-907b-3364533b04bd",
+          "name": "Get Height Above Average Terrain (HAAT)",
+          "request": {
+            "name": "Get Height Above Average Terrain (HAAT)",
+            "description": {
+              "content": "Calculate the Height Above Average Terrain (HAAT) for a given location, number of radials, and radiation center height.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "haat.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "(Required) Latitude in decimal degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<double>",
+                  "description": "(Required) Longitude in decimal degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "nradial",
+                  "value": "<integer>",
+                  "description": "Number of radials (default 360)"
+                },
+                {
+                  "disabled": false,
+                  "key": "rcamsl",
+                  "value": "<double>",
+                  "description": "Radiation Center Above Mean Sea Level (meters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "src",
+                  "value": "<string>",
+                  "description": "Elevation data source"
+                },
+                {
+                  "disabled": false,
+                  "key": "unit",
+                  "value": "m",
+                  "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d227a7eb-0346-49e4-86b1-403aa187f7f5",
+              "name": "HAAT calculation result",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "haat.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "nradial",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rcamsl",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "src",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "m"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "b604aedf-79f5-42f8-989c-9690f9a1666f",
+    "name": "FCC Contours Haat API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

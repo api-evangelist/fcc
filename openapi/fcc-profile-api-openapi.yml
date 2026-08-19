@@ -1,0 +1,99 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Profile API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: profile
+  description: Get terrain elevation profile between two points
+paths:
+  /profile.json:
+    get:
+      tags:
+      - profile
+      operationId: getProfile
+      summary: Get Terrain Elevation Profile
+      description: 'Get the terrain elevation profile along a path between two geographic points, specified by a starting point plus azimuth, or start and end coordinates.
+
+        '
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude of the starting point in decimal degrees
+        schema:
+          type: number
+          format: double
+      - name: lon
+        in: query
+        required: true
+        description: Longitude of the starting point in decimal degrees
+        schema:
+          type: number
+          format: double
+      - name: azimuth
+        in: query
+        required: false
+        description: Azimuth direction from the start point (degrees)
+        schema:
+          type: number
+          format: double
+      - name: start
+        in: query
+        required: false
+        description: Start distance along the path (km)
+        schema:
+          type: number
+          format: double
+      - name: end
+        in: query
+        required: false
+        description: End distance along the path (km)
+        schema:
+          type: number
+          format: double
+      - name: num_points
+        in: query
+        required: false
+        description: Number of elevation sample points along the profile
+        schema:
+          type: integer
+      - name: src
+        in: query
+        required: false
+        description: Elevation data source
+        schema:
+          type: string
+          enum:
+          - ned_1
+          - ned_2
+          - globe30
+      - name: unit
+        in: query
+        required: false
+        description: 'Unit of measurement: m=meters (default), mi=miles, ft=feet'
+        schema:
+          type: string
+          enum:
+          - m
+          - mi
+          - ft
+          default: m
+      responses:
+        '200':
+          description: Array of elevation values along the profile
+          content:
+            application/json:
+              schema:
+                type: object

@@ -1,0 +1,121 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Coverage API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "coverage",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Contour by Service Type",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/coverage.json",
+            "params": [
+              {
+                "name": "serviceType",
+                "value": "",
+                "type": "query",
+                "description": "Type of broadcast service. Valid values: tv, fm"
+              },
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude of the transmitter site"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude of the transmitter site"
+              },
+              {
+                "name": "nradial",
+                "value": "",
+                "type": "query",
+                "description": "Number of radials"
+              },
+              {
+                "name": "rcamsl",
+                "value": "",
+                "type": "query",
+                "description": "Radiation Center Above Mean Sea Level (meters)"
+              },
+              {
+                "name": "field",
+                "value": "",
+                "type": "query",
+                "description": "Field strength (dBu)"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "query",
+                "description": "Channel (required for TV)"
+              },
+              {
+                "name": "erp",
+                "value": "",
+                "type": "query",
+                "description": "Effective Radiation Power (kW)"
+              },
+              {
+                "name": "curve",
+                "value": "",
+                "type": "query",
+                "description": "Type of propagation curve. 0: F(50,50), 1: F(50,10), 2: F(50,90)"
+              },
+              {
+                "name": "pattern",
+                "value": "",
+                "type": "query",
+                "description": "Radiation strength at various azimuths for directional antennas. Provide azimuth,strength pairs separated by semicolons. Example: 0,0.63;10,0.57;\n"
+              },
+              {
+                "name": "ant_rotation",
+                "value": "",
+                "type": "query",
+                "description": "Antenna rotation (0-360, default 0)"
+              },
+              {
+                "name": "pop",
+                "value": "",
+                "type": "query",
+                "description": "Include population calculation"
+              },
+              {
+                "name": "area",
+                "value": "",
+                "type": "query",
+                "description": "Include coverage area calculation"
+              },
+              {
+                "name": "src",
+                "value": "",
+                "type": "query",
+                "description": "Elevation data source. NED 1 arc-second (ned_1), 1/3 arc-second (ned_13), Alaska 2 arc-second (ned_2), or global dataset (globe30).\n"
+              },
+              {
+                "name": "unit",
+                "value": "",
+                "type": "query",
+                "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+              }
+            ]
+          },
+          "docs": "Get contour based on serviceType (FM, TV). Response returned in GeoJSON, JSONP, Shapefile, KML, GML, CSV.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

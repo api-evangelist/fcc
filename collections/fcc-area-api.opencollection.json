@@ -1,0 +1,55 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC and Census Block Area API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "area",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Market Area Data",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/census/area",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude in decimal degrees (e.g., 38.26)"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude in decimal degrees (e.g., -77.51)"
+              },
+              {
+                "name": "censusYear",
+                "value": "",
+                "type": "query",
+                "description": "Census year for data. Valid values: 2010, 2020 (default)"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Defaults to xml."
+              }
+            ]
+          },
+          "docs": "Returns market data for a location based on latitude and longitude, including US Census Bureau Census Block population data and FCC market information.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

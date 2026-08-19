@@ -1,0 +1,49 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Am Pattern API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "am-pattern",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get AM Antenna Pattern",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/getAmPattern.json",
+            "params": [
+              {
+                "name": "idType",
+                "value": "",
+                "type": "query",
+                "description": "Type of identifier. Valid values: facilityId, callsign, applicationId"
+              },
+              {
+                "name": "idValue",
+                "value": "",
+                "type": "query",
+                "description": "Value for the specified identifier type"
+              },
+              {
+                "name": "nradial",
+                "value": "",
+                "type": "query",
+                "description": "Number of radials"
+              }
+            ]
+          },
+          "docs": "Get AM broadcast station antenna pattern data by facility ID, call sign, or application ID.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

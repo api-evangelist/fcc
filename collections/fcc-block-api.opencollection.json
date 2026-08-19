@@ -1,0 +1,61 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Area and Census Block API",
+    "version": "1.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "block",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Census Block FIPS by Latitude and Longitude",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/census/block/find",
+            "params": [
+              {
+                "name": "latitude",
+                "value": "",
+                "type": "query",
+                "description": "Latitude in decimal degrees or DMS format. Range: -90 to 90. Examples: 38.26 or 38:15:36N\n"
+              },
+              {
+                "name": "longitude",
+                "value": "",
+                "type": "query",
+                "description": "Longitude in decimal degrees or DMS format. Range: -180 to 180. Examples: -77.51 or 77:30:36W\n"
+              },
+              {
+                "name": "censusYear",
+                "value": "",
+                "type": "query",
+                "description": "Census year for results. Valid values: 2010, 2020 (default)"
+              },
+              {
+                "name": "showall",
+                "value": "",
+                "type": "query",
+                "description": "If the coordinate lies on the boundary of multiple geographies, use showall=true to return the complete list.\n"
+              },
+              {
+                "name": "format",
+                "value": "",
+                "type": "query",
+                "description": "Response format. Defaults to xml."
+              }
+            ]
+          },
+          "docs": "Returns the US Census Bureau Census Block FIPS code, county FIPS code, and state FIPS code for a given latitude and longitude. Also returns the associated US State and County names.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

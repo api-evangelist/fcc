@@ -1,0 +1,254 @@
+{
+  "item": [
+    {
+      "id": "bedfa3d7-f560-4500-b4d2-3780d8512b03",
+      "name": "coverage",
+      "description": {
+        "content": "Get service contour for TV and FM stations",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "33c5aba3-9a92-452a-940a-1a19c24fd06a",
+          "name": "Get Contour by Service Type",
+          "request": {
+            "name": "Get Contour by Service Type",
+            "description": {
+              "content": "Get contour based on serviceType (FM, TV). Response returned in GeoJSON, JSONP, Shapefile, KML, GML, CSV.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "coverage.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "serviceType",
+                  "value": "<string>",
+                  "description": "(Required) Type of broadcast service. Valid values: tv, fm"
+                },
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "(Required) Latitude of the transmitter site"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<double>",
+                  "description": "(Required) Longitude of the transmitter site"
+                },
+                {
+                  "disabled": false,
+                  "key": "nradial",
+                  "value": "<integer>",
+                  "description": "(Required) Number of radials"
+                },
+                {
+                  "disabled": false,
+                  "key": "rcamsl",
+                  "value": "<double>",
+                  "description": "(Required) Radiation Center Above Mean Sea Level (meters)"
+                },
+                {
+                  "disabled": false,
+                  "key": "field",
+                  "value": "<double>",
+                  "description": "(Required) Field strength (dBu)"
+                },
+                {
+                  "disabled": false,
+                  "key": "channel",
+                  "value": "<integer>",
+                  "description": "Channel (required for TV)"
+                },
+                {
+                  "disabled": false,
+                  "key": "erp",
+                  "value": "<double>",
+                  "description": "(Required) Effective Radiation Power (kW)"
+                },
+                {
+                  "disabled": false,
+                  "key": "curve",
+                  "value": "<string>",
+                  "description": "(Required) Type of propagation curve. 0: F(50,50), 1: F(50,10), 2: F(50,90)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pattern",
+                  "value": "<string>",
+                  "description": "Radiation strength at various azimuths for directional antennas. Provide azimuth,strength pairs separated by semicolons. Example: 0,0.63;10,0.57;\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "ant_rotation",
+                  "value": "0",
+                  "description": "Antenna rotation (0-360, default 0)"
+                },
+                {
+                  "disabled": false,
+                  "key": "pop",
+                  "value": "false",
+                  "description": "Include population calculation"
+                },
+                {
+                  "disabled": false,
+                  "key": "area",
+                  "value": "false",
+                  "description": "Include coverage area calculation"
+                },
+                {
+                  "disabled": false,
+                  "key": "src",
+                  "value": "<string>",
+                  "description": "Elevation data source. NED 1 arc-second (ned_1), 1/3 arc-second (ned_13), Alaska 2 arc-second (ned_2), or global dataset (globe30).\n"
+                },
+                {
+                  "disabled": false,
+                  "key": "unit",
+                  "value": "m",
+                  "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d4cc1fa-6609-4079-972a-246bad2c5d6b",
+              "name": "GeoJSON coverage contour data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "coverage.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "serviceType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "nradial",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "rcamsl",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "field",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "channel",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "erp",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "curve",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "pattern",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "ant_rotation",
+                      "value": "0"
+                    },
+                    {
+                      "key": "pop",
+                      "value": "false"
+                    },
+                    {
+                      "key": "area",
+                      "value": "false"
+                    },
+                    {
+                      "key": "src",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "m"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "7085f932-b28e-47bf-8ac0-8e4c8d7a31da",
+    "name": "FCC Contours Coverage API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

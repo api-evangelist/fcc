@@ -1,0 +1,134 @@
+{
+  "item": [
+    {
+      "id": "2090df1e-cd88-4b46-96b1-7cf6afe34939",
+      "name": "am-pattern",
+      "description": {
+        "content": "Get AM antenna pattern data",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4aa68a60-1bb1-4589-9184-2f12a820b219",
+          "name": "Get AM Antenna Pattern",
+          "request": {
+            "name": "Get AM Antenna Pattern",
+            "description": {
+              "content": "Get AM broadcast station antenna pattern data by facility ID, call sign, or application ID.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "getAmPattern.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "idType",
+                  "value": "<string>",
+                  "description": "(Required) Type of identifier. Valid values: facilityId, callsign, applicationId"
+                },
+                {
+                  "disabled": false,
+                  "key": "idValue",
+                  "value": "<string>",
+                  "description": "(Required) Value for the specified identifier type"
+                },
+                {
+                  "disabled": false,
+                  "key": "nradial",
+                  "value": "<integer>",
+                  "description": "Number of radials"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d7b0c3c5-e0cf-4e3a-a29d-3307b3ed91f9",
+              "name": "AM antenna pattern data",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "getAmPattern.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "idType",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "idValue",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "nradial",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "d4c90127-31a0-4ca4-8b31-586da068e452",
+    "name": "FCC Contours Am Pattern API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

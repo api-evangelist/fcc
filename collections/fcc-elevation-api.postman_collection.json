@@ -1,0 +1,144 @@
+{
+  "item": [
+    {
+      "id": "3d63575e-7dca-4694-a1d1-bd5ec443a733",
+      "name": "elevation",
+      "description": {
+        "content": "Get terrain elevation data at a given location",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "755dddf5-5af8-493c-994c-8518a7e33a60",
+          "name": "Get Terrain Elevation",
+          "request": {
+            "name": "Get Terrain Elevation",
+            "description": {
+              "content": "Get terrain elevation at a given latitude and longitude using national elevation datasets.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "elevation.json"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "lat",
+                  "value": "<double>",
+                  "description": "(Required) Latitude in decimal degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "lon",
+                  "value": "<double>",
+                  "description": "(Required) Longitude in decimal degrees"
+                },
+                {
+                  "disabled": false,
+                  "key": "src",
+                  "value": "<string>",
+                  "description": "Elevation data source"
+                },
+                {
+                  "disabled": false,
+                  "key": "unit",
+                  "value": "m",
+                  "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "13088825-f0f4-4141-b058-efbe97c075ad",
+              "name": "Elevation data at the specified location",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "elevation.json"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "lat",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "lon",
+                      "value": "<double>"
+                    },
+                    {
+                      "key": "src",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "unit",
+                      "value": "m"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"elevation\": 6126.59240758519\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://geo.fcc.gov/api/contours",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "a39879d3-a772-4f29-8a38-35b56182f1b1",
+    "name": "FCC Contours Elevation API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.\n\n\nContact Support:\n Name: Federal Communications Commission",
+      "type": "text/plain"
+    }
+  }
+}

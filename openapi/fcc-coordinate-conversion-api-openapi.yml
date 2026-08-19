@@ -1,0 +1,138 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Coordinate Conversion API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: coordinate-conversion
+  description: Convert between decimal degrees and degrees-minutes-seconds
+paths:
+  /dd2dms.json:
+    get:
+      tags:
+      - coordinate-conversion
+      operationId: decimalDegreesToDMS
+      summary: Convert Decimal Degrees to DMS
+      description: 'Convert geographic coordinates from decimal degrees (DD) format to degrees-minutes-seconds (DMS) format.
+
+        '
+      parameters:
+      - name: lat
+        in: query
+        required: true
+        description: Latitude in decimal degrees
+        schema:
+          type: number
+          format: double
+      - name: lon
+        in: query
+        required: true
+        description: Longitude in decimal degrees
+        schema:
+          type: number
+          format: double
+      responses:
+        '200':
+          description: Coordinates in degrees-minutes-seconds format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lat:
+                    type: string
+                    description: Latitude in DMS format
+                  lon:
+                    type: string
+                    description: Longitude in DMS format
+  /dms2dd.json:
+    get:
+      tags:
+      - coordinate-conversion
+      operationId: dmsToDecimalDegrees
+      summary: Convert DMS to Decimal Degrees
+      description: 'Convert geographic coordinates from degrees-minutes-seconds (DMS) format to decimal degrees (DD) format.
+
+        '
+      parameters:
+      - name: latD
+        in: query
+        required: true
+        description: Latitude degrees
+        schema:
+          type: integer
+      - name: latM
+        in: query
+        required: true
+        description: Latitude minutes
+        schema:
+          type: integer
+      - name: latS
+        in: query
+        required: true
+        description: Latitude seconds
+        schema:
+          type: number
+          format: double
+      - name: latDi
+        in: query
+        required: true
+        description: Latitude direction (N or S)
+        schema:
+          type: string
+          enum:
+          - N
+          - S
+      - name: lonD
+        in: query
+        required: true
+        description: Longitude degrees
+        schema:
+          type: integer
+      - name: lonM
+        in: query
+        required: true
+        description: Longitude minutes
+        schema:
+          type: integer
+      - name: lonS
+        in: query
+        required: true
+        description: Longitude seconds
+        schema:
+          type: number
+          format: double
+      - name: lonDi
+        in: query
+        required: true
+        description: Longitude direction (E or W)
+        schema:
+          type: string
+          enum:
+          - E
+          - W
+      responses:
+        '200':
+          description: Coordinates in decimal degrees format
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  lat:
+                    type: number
+                    description: Latitude in decimal degrees
+                  lon:
+                    type: number
+                    description: Longitude in decimal degrees

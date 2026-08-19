@@ -1,0 +1,67 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Haat API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "haat",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get Height Above Average Terrain (HAAT)",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/haat.json",
+            "params": [
+              {
+                "name": "lat",
+                "value": "",
+                "type": "query",
+                "description": "Latitude in decimal degrees"
+              },
+              {
+                "name": "lon",
+                "value": "",
+                "type": "query",
+                "description": "Longitude in decimal degrees"
+              },
+              {
+                "name": "nradial",
+                "value": "",
+                "type": "query",
+                "description": "Number of radials (default 360)"
+              },
+              {
+                "name": "rcamsl",
+                "value": "",
+                "type": "query",
+                "description": "Radiation Center Above Mean Sea Level (meters)"
+              },
+              {
+                "name": "src",
+                "value": "",
+                "type": "query",
+                "description": "Elevation data source"
+              },
+              {
+                "name": "unit",
+                "value": "",
+                "type": "query",
+                "description": "Unit of measurement: m=meters (default), mi=miles, ft=feet"
+              }
+            ]
+          },
+          "docs": "Calculate the Height Above Average Terrain (HAAT) for a given location, number of radials, and radiation center height.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

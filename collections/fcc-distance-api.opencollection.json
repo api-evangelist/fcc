@@ -1,0 +1,79 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "FCC Contours Distance API",
+    "version": "1.5.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "distance",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Calculate Distance Using F-Curve",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://geo.fcc.gov/api/contours/distance.json",
+            "params": [
+              {
+                "name": "computationMethod",
+                "value": "",
+                "type": "query",
+                "description": "Method for distance computation"
+              },
+              {
+                "name": "serviceType",
+                "value": "",
+                "type": "query",
+                "description": "Type of broadcast service. Valid values: tv, fm"
+              },
+              {
+                "name": "haat",
+                "value": "",
+                "type": "query",
+                "description": "Height Above Average Terrain (meters)"
+              },
+              {
+                "name": "channel",
+                "value": "",
+                "type": "query",
+                "description": "TV or FM channel number"
+              },
+              {
+                "name": "field",
+                "value": "",
+                "type": "query",
+                "description": "Field strength (dBu)"
+              },
+              {
+                "name": "erp",
+                "value": "",
+                "type": "query",
+                "description": "Effective Radiation Power (kW)"
+              },
+              {
+                "name": "distance",
+                "value": "",
+                "type": "query",
+                "description": "Distance (km)"
+              },
+              {
+                "name": "curve",
+                "value": "",
+                "type": "query",
+                "description": "Propagation curve: 0=F(50,50), 1=F(50,10), 2=F(50,90)"
+              }
+            ]
+          },
+          "docs": "Calculate the service distance or interfering distance using FCC F-curve propagation models for TV or FM services.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

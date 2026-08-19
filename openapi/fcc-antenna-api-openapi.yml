@@ -1,0 +1,64 @@
+openapi: 3.2.0
+info:
+  title: FCC Contours Antenna API
+  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
+
+    '
+  version: 1.5.0
+  contact:
+    name: Federal Communications Commission
+    url: https://geo.fcc.gov/api/contours/
+  license:
+    name: FCC API Terms of Service
+    url: https://www.fcc.gov/reports-research/developers/api-terms-service
+servers:
+- url: https://geo.fcc.gov/api/contours
+  description: FCC Contours API
+tags:
+- name: antenna
+  description: Get antenna pattern data for TV and FM stations
+paths:
+  /antenna.json:
+    get:
+      tags:
+      - antenna
+      operationId: getAntenna
+      summary: Get Antenna Pattern Data
+      description: 'Get antenna pattern data for a TV or FM station identified by call sign, facility ID, or application ID.
+
+        '
+      parameters:
+      - name: serviceType
+        in: query
+        required: true
+        description: 'Type of broadcast service. Valid values: tv, fm'
+        schema:
+          type: string
+          enum:
+          - tv
+          - fm
+      - name: callsign
+        in: query
+        required: false
+        description: Station call sign
+        schema:
+          type: string
+      - name: facilityId
+        in: query
+        required: false
+        description: FCC Facility ID
+        schema:
+          type: string
+      - name: applicationId
+        in: query
+        required: false
+        description: FCC Application ID
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Antenna pattern data
+          content:
+            application/json:
+              schema:
+                type: object

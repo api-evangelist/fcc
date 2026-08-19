@@ -1,0 +1,50 @@
+{
+  "provider": "fcc",
+  "sources": [
+    "fcc-am-pattern-api-openapi.yml",
+    "fcc-antenna-api-openapi.yml",
+    "fcc-area-api-openapi.yml",
+    "fcc-block-api-openapi.yml",
+    "fcc-coordinate-conversion-api-openapi.yml",
+    "fcc-coverage-api-openapi.yml",
+    "fcc-distance-api-openapi.yml",
+    "fcc-elevation-api-openapi.yml",
+    "fcc-entity-api-openapi.yml",
+    "fcc-haat-api-openapi.yml",
+    "fcc-profile-api-openapi.yml",
+    "fcc-projection-api-openapi.yml"
+  ],
+  "outputs": [
+    "fcc-am-pattern-api-openapi.yml",
+    "fcc-antenna-api-openapi.yml",
+    "fcc-area-api-openapi.yml",
+    "fcc-block-api-openapi.yml",
+    "fcc-coordinate-conversion-api-openapi.yml",
+    "fcc-coverage-api-openapi.yml",
+    "fcc-distance-api-openapi.yml",
+    "fcc-elevation-api-openapi.yml",
+    "fcc-entity-api-openapi.yml",
+    "fcc-haat-api-openapi.yml",
+    "fcc-profile-api-openapi.yml",
+    "fcc-projection-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [
+    "fcc-am-pattern-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-antenna-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-area-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-block-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-coordinate-conversion-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-coverage-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-distance-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-elevation-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-entity-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-haat-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-profile-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-projection-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": []
+}
