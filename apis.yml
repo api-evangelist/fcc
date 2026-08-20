@@ -20,6 +20,14 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
 tags:
+  - Federal-Government
+  - Telecommunications
+  - Radio
+  - Broadband
+  - Spectrum
+  - Licensing
+  - Regulatory
+tags_raw:
   - Federal Government
   - Telecommunications
   - Radio
@@ -167,6 +175,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Area
+  tags_raw:
   - area
   properties:
   - type: OpenAPI
@@ -181,6 +191,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Block
+  tags_raw:
   - block
   properties:
   - type: OpenAPI
@@ -209,6 +221,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Coverage
+  tags_raw:
   - coverage
   properties:
   - type: OpenAPI
@@ -223,6 +237,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Distance
+  tags_raw:
   - distance
   properties:
   - type: OpenAPI
@@ -237,6 +253,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Elevation
+  tags_raw:
   - elevation
   properties:
   - type: OpenAPI
@@ -251,6 +269,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Entity
+  tags_raw:
   - entity
   properties:
   - type: OpenAPI
@@ -279,6 +299,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Profile
+  tags_raw:
   - profile
   properties:
   - type: OpenAPI
@@ -293,6 +315,8 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
+  - Projection
+  tags_raw:
   - projection
   properties:
   - type: OpenAPI
