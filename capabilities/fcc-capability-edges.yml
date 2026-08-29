@@ -1,0 +1,25 @@
+slug: fcc
+provider: FCC (Federal Communications Commission)
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Telecommunications
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: coverage
+  spec_file: fcc-coverage-api-openapi.yml
+  capability_id: BC-2610.20
+  capability_id_l1: BC-2610
+  capability_name: Network Coverage Planning
+  confidence: 0.7
+  evidence: GET /coverage.json "Get Contour by Service Type"; "provides broadcast radio and television
+    service area data ... coverage contours for FM and TV stations"
+  reason: Returns geographic coverage contours / service areas for radio and TV transmitters, which is
+    the substance of radio coverage planning. Read-only public data service, so moderate confidence.

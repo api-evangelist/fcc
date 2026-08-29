@@ -339,6 +339,9 @@ apis:
   - type: Documentation
     url: https://geo.fcc.gov/api/contours/
 common:
+  - type: CapabilityMap
+    url: capabilities/fcc-capability-edges.yml
+    name: FCC (Federal Communications Commission) Business Capability Map
   - type: IssueTracker
     url: https://github.com/FCC/bdcapi/issues
   - type: DomainSecurity
