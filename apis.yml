@@ -188,7 +188,7 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
-  - Area
+  - area
   tags_raw:
   - area
   properties:
@@ -234,7 +234,7 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
-  - Coverage
+  - coverage
   tags_raw:
   - coverage
   properties:
@@ -250,7 +250,7 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
-  - Distance
+  - distance
   tags_raw:
   - distance
   properties:
@@ -266,7 +266,7 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
-  - Elevation
+  - elevation
   tags_raw:
   - elevation
   properties:
@@ -282,7 +282,7 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
-  - Entity
+  - entity
   tags_raw:
   - entity
   properties:
@@ -328,7 +328,7 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
-  - Projection
+  - projection
   tags_raw:
   - projection
   properties:
