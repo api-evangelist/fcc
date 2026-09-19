@@ -312,7 +312,7 @@ apis:
   humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
   baseURL: https://data.fcc.gov/api/license-view
   tags:
-  - Profile
+  - Profiles
   tags_raw:
   - profile
   properties:
