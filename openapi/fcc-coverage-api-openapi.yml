@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: FCC Contours Coverage API
-  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
-
-    '
+  description: The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
   version: 1.5.0
   contact:
     name: Federal Communications Commission
@@ -15,18 +13,16 @@ servers:
 - url: https://geo.fcc.gov/api/contours
   description: FCC Contours API
 tags:
-- name: coverage
+- name: Coverage
   description: Get service contour for TV and FM stations
 paths:
   /coverage.json:
     get:
       tags:
-      - coverage
+      - Coverage
       operationId: getCoverage
       summary: Get Contour by Service Type
-      description: 'Get contour based on serviceType (FM, TV). Response returned in GeoJSON, JSONP, Shapefile, KML, GML, CSV.
-
-        '
+      description: Get contour based on serviceType (FM, TV). Response returned in GeoJSON, JSONP, Shapefile, KML, GML, CSV.
       parameters:
       - name: serviceType
         in: query

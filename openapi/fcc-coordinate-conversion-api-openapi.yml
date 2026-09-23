@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: FCC Contours Coordinate Conversion API
-  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
-
-    '
+  description: The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
   version: 1.5.0
   contact:
     name: Federal Communications Commission
@@ -24,9 +22,7 @@ paths:
       - coordinate-conversion
       operationId: decimalDegreesToDMS
       summary: Convert Decimal Degrees to DMS
-      description: 'Convert geographic coordinates from decimal degrees (DD) format to degrees-minutes-seconds (DMS) format.
-
-        '
+      description: Convert geographic coordinates from decimal degrees (DD) format to degrees-minutes-seconds (DMS) format.
       parameters:
       - name: lat
         in: query
@@ -62,9 +58,7 @@ paths:
       - coordinate-conversion
       operationId: dmsToDecimalDegrees
       summary: Convert DMS to Decimal Degrees
-      description: 'Convert geographic coordinates from degrees-minutes-seconds (DMS) format to decimal degrees (DD) format.
-
-        '
+      description: Convert geographic coordinates from degrees-minutes-seconds (DMS) format to decimal degrees (DD) format.
       parameters:
       - name: latD
         in: query

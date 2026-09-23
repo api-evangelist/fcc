@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: FCC Contours Projection API
-  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
-
-    '
+  description: The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
   version: 1.5.0
   contact:
     name: Federal Communications Commission
@@ -15,18 +13,16 @@ servers:
 - url: https://geo.fcc.gov/api/contours
   description: FCC Contours API
 tags:
-- name: projection
+- name: Projection
   description: Project coordinates between coordinate reference systems
 paths:
   /project.json:
     get:
       tags:
-      - projection
+      - Projection
       operationId: projectCoordinates
       summary: Project Coordinates Between CRS
-      description: 'Project a coordinate point from one coordinate reference system (CRS) to another, such as from WGS84 to NAD83 or to various state plane systems.
-
-        '
+      description: Project a coordinate point from one coordinate reference system (CRS) to another, such as from WGS84 to NAD83 or to various state plane systems.
       parameters:
       - name: lat
         in: query

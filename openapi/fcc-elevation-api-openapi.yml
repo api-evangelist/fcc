@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: FCC Contours Elevation API
-  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
-
-    '
+  description: The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
   version: 1.5.0
   contact:
     name: Federal Communications Commission
@@ -15,18 +13,16 @@ servers:
 - url: https://geo.fcc.gov/api/contours
   description: FCC Contours API
 tags:
-- name: elevation
+- name: Elevation
   description: Get terrain elevation data at a given location
 paths:
   /elevation.json:
     get:
       tags:
-      - elevation
+      - Elevation
       operationId: getElevation
       summary: Get Terrain Elevation
-      description: 'Get terrain elevation at a given latitude and longitude using national elevation datasets.
-
-        '
+      description: Get terrain elevation at a given latitude and longitude using national elevation datasets.
       parameters:
       - name: lat
         in: query

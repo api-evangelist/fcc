@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: FCC Contours Haat API
-  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
-
-    '
+  description: The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
   version: 1.5.0
   contact:
     name: Federal Communications Commission
@@ -24,9 +22,7 @@ paths:
       - haat
       operationId: getHAAT
       summary: Get Height Above Average Terrain (HAAT)
-      description: 'Calculate the Height Above Average Terrain (HAAT) for a given location, number of radials, and radiation center height.
-
-        '
+      description: Calculate the Height Above Average Terrain (HAAT) for a given location, number of radials, and radiation center height.
       parameters:
       - name: lat
         in: query

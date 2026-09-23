@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: FCC and Census Block Area API
-  description: 'The FCC Area and Census Block API returns US Census Bureau Census Block FIPS codes, county FIPS codes, state FIPS codes, and associated US State and County names based on latitude and longitude coordinates. Also returns market data and population data. All endpoints are free with no authentication required.
-
-    '
+  description: The FCC Area and Census Block API returns US Census Bureau Census Block FIPS codes, county FIPS codes, state FIPS codes, and associated US State and County names based on latitude and longitude coordinates. Also returns market data and population data. All endpoints are free with no authentication required.
   version: 1.0.0
   contact:
     name: Federal Communications Commission
@@ -24,9 +22,7 @@ paths:
       - area
       operationId: getArea
       summary: Get Market Area Data
-      description: 'Returns market data for a location based on latitude and longitude, including US Census Bureau Census Block population data and FCC market information.
-
-        '
+      description: Returns market data for a location based on latitude and longitude, including US Census Bureau Census Block population data and FCC market information.
       parameters:
       - name: lat
         in: query

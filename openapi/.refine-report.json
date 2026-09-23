@@ -1,24 +1,14 @@
 {
   "provider": "fcc",
   "sources": [
-    "fcc-am-pattern-api-openapi.yml",
-    "fcc-antenna-api-openapi.yml",
-    "fcc-area-api-openapi.yml",
-    "fcc-block-api-openapi.yml",
-    "fcc-coordinate-conversion-api-openapi.yml",
-    "fcc-coverage-api-openapi.yml",
-    "fcc-distance-api-openapi.yml",
-    "fcc-elevation-api-openapi.yml",
-    "fcc-entity-api-openapi.yml",
-    "fcc-haat-api-openapi.yml",
-    "fcc-profile-api-openapi.yml",
-    "fcc-projection-api-openapi.yml"
+    "_original/fcc-area-census-block-api.yaml",
+    "_original/fcc-contours-api.yaml"
   ],
   "outputs": [
-    "fcc-am-pattern-api-openapi.yml",
-    "fcc-antenna-api-openapi.yml",
     "fcc-area-api-openapi.yml",
     "fcc-block-api-openapi.yml",
+    "fcc-am-pattern-api-openapi.yml",
+    "fcc-antenna-api-openapi.yml",
     "fcc-coordinate-conversion-api-openapi.yml",
     "fcc-coverage-api-openapi.yml",
     "fcc-distance-api-openapi.yml",
@@ -32,19 +22,23 @@
   "errors": [],
   "warnings": [],
   "notes": [
-    "fcc-am-pattern-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-antenna-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-area-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-block-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-coordinate-conversion-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-coverage-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-distance-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-elevation-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-entity-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-haat-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-profile-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "fcc-projection-api-openapi.yml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "fcc-area-census-block-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "fcc-contours-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "fcc-am-pattern-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-antenna-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-area-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-block-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-coordinate-conversion-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-coverage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-distance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-elevation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-entity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-haat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-projection-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

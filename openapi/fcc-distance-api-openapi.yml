@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
   title: FCC Contours Distance API
-  description: 'The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
-
-    '
+  description: The FCC Enterprise Contours API provides broadcast radio and television service area data. Includes coverage contours for FM and TV stations by call sign, Facility ID, or ApplicationID, plus elevation, Height Above Average Terrain (HAAT), antenna patterns, coordinate conversion, and distance-curve calculations. All endpoints are free with no authentication required.
   version: 1.5.0
   contact:
     name: Federal Communications Commission
@@ -15,18 +13,16 @@ servers:
 - url: https://geo.fcc.gov/api/contours
   description: FCC Contours API
 tags:
-- name: distance
+- name: Distance
   description: Calculate distance using F-curve propagation curves
 paths:
   /distance.json:
     get:
       tags:
-      - distance
+      - Distance
       operationId: getDistance
       summary: Calculate Distance Using F-Curve
-      description: 'Calculate the service distance or interfering distance using FCC F-curve propagation models for TV or FM services.
-
-        '
+      description: Calculate the service distance or interfering distance using FCC F-curve propagation models for TV or FM services.
       parameters:
       - name: computationMethod
         in: query
