@@ -3,17 +3,20 @@ name: FCC (Federal Communications Commission)
 description: The Federal Communications Commission provides free public REST APIs for radio station license lookup, broadband coverage maps, spectrum auction data, broadcast contours, census block conversions, consumer complaint databases, electronic comment filings, and regulatory data. All APIs are free with no authentication required for most endpoints.
 type: Index
 deliveryModel:
-  model: unknown
+  model: saas
+  license_evidence:
+    not_product:
+    - fcc/bdcapi
   open_source: unknown
   commercial: true
   callable_host: true
-  label: Delivery model not determined — needs a product licence on record
+  label: Hosted service · you call their endpoint
   confidence: low
   source:
   - openapi
   - pricing
-  - repository-unlicensed
-  generated: '2026-08-28'
+  - repository-not-product
+  generated: '2026-09-25'
   method: derived
 accessModel:
   pricing: free
@@ -33,7 +36,7 @@ created: '2026-06-13'
 modified: '2026-06-13'
 specificationVersion: '0.23'
 tags:
-  - Federal-Government
+  - Federal Government
   - Telecommunications
   - Radio
   - Broadband
@@ -48,6 +51,7 @@ tags_raw:
   - Spectrum
   - Licensing
   - Regulatory
+  - Federal-Government
 apis:
 - aid: fcc:license-view
   name: FCC License View API
@@ -338,6 +342,88 @@ apis:
     url: https://www.fcc.gov/census-block-conversions-api
   - type: Documentation
     url: https://geo.fcc.gov/api/contours/
+- aid: fcc:fcc-datasets-api
+  name: FCC (Federal Communications Commission) Datasets API
+  description: Dataset catalog and resources
+  humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
+  baseURL: https://data.fcc.gov/api/license-view
+  tags:
+  - Datasets
+  properties:
+  - type: OpenAPI
+    url: openapi/fcc-datasets-api-openapi.yml
+  - type: Documentation
+    url: https://www.fcc.gov/reports-research/developers
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/ecfs-rules.yml
+  - type: Documentation
+    url: https://opendata.fcc.gov/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/opendata-rules.yml
+- aid: fcc:fcc-filings-api
+  name: FCC (Federal Communications Commission) Filings API
+  description: >-
+    The Filings API from FCC (Federal Communications Commission) — 1 operation(s) for filings.
+  humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
+  baseURL: https://data.fcc.gov/api/license-view
+  tags:
+  - Filings
+  properties:
+  - type: OpenAPI
+    url: openapi/fcc-filings-api-openapi.yml
+  - type: Documentation
+    url: https://www.fcc.gov/reports-research/developers
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/ecfs-rules.yml
+  - type: Documentation
+    url: https://opendata.fcc.gov/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/opendata-rules.yml
+- aid: fcc:fcc-pirate-radio-api
+  name: FCC (Federal Communications Commission) Pirate Radio API
+  description: Pirate Radio Broadcasting Database
+  humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
+  baseURL: https://data.fcc.gov/api/license-view
+  tags:
+  - Pirate Radio
+  properties:
+  - type: OpenAPI
+    url: openapi/fcc-pirate-radio-api-openapi.yml
+  - type: Documentation
+    url: https://www.fcc.gov/reports-research/developers
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/ecfs-rules.yml
+  - type: Documentation
+    url: https://opendata.fcc.gov/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/opendata-rules.yml
+- aid: fcc:fcc-proceedings-api
+  name: FCC (Federal Communications Commission) Proceedings API
+  description: >-
+    The Proceedings API from FCC (Federal Communications Commission) — 1 operation(s) for proceedings.
+  humanURL: https://www.fcc.gov/reports-research/developers/license-view-api
+  baseURL: https://data.fcc.gov/api/license-view
+  tags:
+  - Proceedings
+  properties:
+  - type: OpenAPI
+    url: openapi/fcc-proceedings-api-openapi.yml
+  - type: Documentation
+    url: https://www.fcc.gov/reports-research/developers
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/ecfs-rules.yml
+  - type: Documentation
+    url: https://opendata.fcc.gov/
+  - type: Rules
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/federal-communications-commission/refs/heads/main/rules/opendata-rules.yml
 common:
   - type: CapabilityMap
     url: capabilities/fcc-capability-edges.yml
@@ -370,6 +456,8 @@ common:
     url: finops/fcc-finops.yml
   - type: TermsOfService
     url: https://www.fcc.gov/reports-research/developers/api-terms-service
+  - type: GitHubOrganization
+    url: https://github.com/fcc
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com

@@ -1,0 +1,59 @@
+openapi: 3.2.0
+info:
+  title: FCC Open Data Datasets API
+  description: The FCC Open Data Portal exposes datasets via the Socrata Open Data API (SODA), including the Pirate Radio Broadcasting Database, Fixed Broadband Deployment data, and consumer complaint summaries.
+  version: '1.0'
+  contact:
+    name: FCC Open Data
+    url: https://opendata.fcc.gov/
+servers:
+- url: https://opendata.fcc.gov
+  description: FCC Open Data portal
+tags:
+- name: Datasets
+  description: Dataset catalog and resources
+paths:
+  /api/views.json:
+    get:
+      operationId: listViews
+      summary: List datasets in the FCC open data catalog
+      description: Returns a list of datasets and views available on the FCC Open Data portal.
+      tags:
+      - Datasets
+      parameters:
+      - name: limit
+        in: query
+        schema:
+          type: integer
+          default: 200
+      - name: page
+        in: query
+        schema:
+          type: integer
+          default: 1
+      responses:
+        '200':
+          description: List of datasets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/View'
+components:
+  schemas:
+    View:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        category:
+          type: string
+        createdAt:
+          type: integer
+        rowsUpdatedAt:
+          type: integer

@@ -2,7 +2,11 @@
   "provider": "fcc",
   "sources": [
     "_original/fcc-area-census-block-api.yaml",
-    "_original/fcc-contours-api.yaml"
+    "_original/fcc-contours-api.yaml",
+    "federal-communications-commission-datasets-api-openapi.yml",
+    "federal-communications-commission-filings-api-openapi.yml",
+    "federal-communications-commission-pirate-radio-api-openapi.yml",
+    "federal-communications-commission-proceedings-api-openapi.yml"
   ],
   "outputs": [
     "fcc-area-api-openapi.yml",
@@ -16,16 +20,25 @@
     "fcc-entity-api-openapi.yml",
     "fcc-haat-api-openapi.yml",
     "fcc-profile-api-openapi.yml",
-    "fcc-projection-api-openapi.yml"
+    "fcc-projection-api-openapi.yml",
+    "fcc-datasets-api-openapi.yml",
+    "fcc-filings-api-openapi.yml",
+    "fcc-pirate-radio-api-openapi.yml",
+    "fcc-proceedings-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "archived openapi/federal-communications-commission-datasets-api-openapi.yml",
+    "archived openapi/federal-communications-commission-filings-api-openapi.yml",
+    "archived openapi/federal-communications-commission-pirate-radio-api-openapi.yml",
+    "archived openapi/federal-communications-commission-proceedings-api-openapi.yml"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "fcc-area-census-block-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "fcc-contours-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "apis.yml register: written (+4 apis, 23 total)"
   ],
   "skipped": [
     "fcc-am-pattern-api-openapi.yml: previously refined output, superseded by openapi/_original/",
