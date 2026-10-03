@@ -3,10 +3,10 @@
   "sources": [
     "_original/fcc-area-census-block-api.yaml",
     "_original/fcc-contours-api.yaml",
-    "federal-communications-commission-datasets-api-openapi.yml",
-    "federal-communications-commission-filings-api-openapi.yml",
-    "federal-communications-commission-pirate-radio-api-openapi.yml",
-    "federal-communications-commission-proceedings-api-openapi.yml"
+    "_original/federal-communications-commission-datasets-api-openapi.yml",
+    "_original/federal-communications-commission-filings-api-openapi.yml",
+    "_original/federal-communications-commission-pirate-radio-api-openapi.yml",
+    "_original/federal-communications-commission-proceedings-api-openapi.yml"
   ],
   "outputs": [
     "fcc-area-api-openapi.yml",
@@ -26,19 +26,14 @@
     "fcc-pirate-radio-api-openapi.yml",
     "fcc-proceedings-api-openapi.yml"
   ],
-  "archived": [
-    "archived openapi/federal-communications-commission-datasets-api-openapi.yml",
-    "archived openapi/federal-communications-commission-filings-api-openapi.yml",
-    "archived openapi/federal-communications-commission-pirate-radio-api-openapi.yml",
-    "archived openapi/federal-communications-commission-proceedings-api-openapi.yml"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
-    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "sourced from openapi/_original/ (6 archived document(s)); previously refined output at the top level was skipped rather than re-split",
     "fcc-area-census-block-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "fcc-contours-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apis.yml register: written (+4 apis, 23 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
     "fcc-am-pattern-api-openapi.yml: previously refined output, superseded by openapi/_original/",
@@ -47,10 +42,14 @@
     "fcc-block-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-coordinate-conversion-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-coverage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-datasets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-distance-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-elevation-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-entity-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-filings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-haat-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-pirate-radio-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "fcc-proceedings-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-profile-api-openapi.yml: previously refined output, superseded by openapi/_original/",
     "fcc-projection-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
