@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 name: FCC API Plans and Pricing
 description: The Federal Communications Commission provides all public APIs free of charge. There are no paid tiers or subscription plans. All APIs are available to anyone who agrees to the FCC API Terms of Service.
 url: https://www.fcc.gov/reports-research/developers/api-terms-service
